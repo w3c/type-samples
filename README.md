@@ -18,6 +18,6 @@ After a few experiments, Github issues seemed to provide the most useful solutio
 
 I tried a wiki based approach, but eventually pages will get too long. Also, if you have multiple pictures in one wiki it's harder to link to one specific picture.
 
-The one thing that would be nice, but that doesn't seem to come with Github, would be a Flickr-like album (see [an example](https://www.flickr.com/photos/ishida/albums/72157650248400402)), that allowed you to scan thumbnails of lots of samples at once, then zoom in to the one you want to use or leave notes on. It's a shame that Flickr is a subscription service, and that GitHub doesn't show previews of image files.
+The one thing that would be nice, but that doesn't seem to come with Github, would be a Flickr-like album (see [an example](https://www.flickr.com/photos/ishida/albums/72157650248400402)), that allowed you to visually scan thumbnails of lots of samples at once, then zoom in to the one you want to use or leave notes on. It's a shame that Flickr is a subscription service, and that GitHub doesn't show previews of image files.
 
-Having the samples in the repo makes it easy for anyone to download them, but it's a little painful to upload them to the repo then find the url to them so that you can link to it from the issue.  My guess is that most people will just drop a picture into an issue.
+Having the samples uploaded to the repo makes it easy for anyone to download them, but it's a little painful to upload them to the repo then find the url to them so that you can link to it from the issue.  My guess is that most people will just drop a picture into an issue.
