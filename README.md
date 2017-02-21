@@ -21,3 +21,12 @@ I tried a wiki based approach, but eventually pages will get too long. Also, if 
 The one thing that would be nice, but that doesn't seem to come with Github, would be a Flickr-like album (see [an example](https://www.flickr.com/photos/ishida/albums/72157650248400402)), that allowed you to visually scan thumbnails of lots of samples at once, then zoom in to the one you want to use or leave notes on. It's a shame that Flickr is a subscription service, and that GitHub doesn't show previews of image files.
 
 Having the samples uploaded to the repo makes it easy for anyone to download them, but it's a little painful to upload them to the repo then find the url to them so that you can link to it from the issue.  My guess is that most people will just drop a picture into an issue.
+
+In this repo there are filters of three kinds
+1 the script (not language, but the language is mentioned at the start of each issue title)
+2 the feature (aligned with the typography index)
+3 the type of source (eg. book, newsprint, mockup, etc.)
+
+For example, see a list of samples about justification: https://github.com/w3c/type-samples/issues?q=is%3Aissue+is%3Aopen+label%3Ajustification
+
+Or see all just the Arabic script samples about justification: https://github.com/w3c/type-samples/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Aarabic%20label%3Ajustification
