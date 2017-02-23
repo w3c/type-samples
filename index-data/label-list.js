@@ -19,6 +19,7 @@ var labels = {
 	'webpage':[],
 
 	'abbreviation':[],
+	'counter-styles':[],
 	'emphasis':[],
 	'font-style':[],
 	'fonts':[],
