@@ -33,6 +33,8 @@ td {
 	margin: .5em;
 	vertical-align: middle;
 	border-radius: 5px;
+	box-shadow: 2px 2px 3px #c1c1c1;
+    border: 1px solid #ccc;
 	}
 .sampleContainer {
 	vertical-align: middle;
