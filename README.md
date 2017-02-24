@@ -5,31 +5,56 @@ You can use the [Visual Index](https://w3c.github.io/type-samples/) to search fo
 
 **I'm working on a set of guidelines for submitting images to the repo. Please check out https://github.com/w3c/type-samples/issues/21#issuecomment-281673811 before submitting stuff.**
 
-##How this might work##
+##How this works##
 
-It would be useful to have place you could go to find scans of text with interesting typographic features that demonstrate how people present text content around the world.  It would be particularly useful if you could categorise, filter, and download those examples to inform work such as CSS specs, explanatory articles, etc.
+Warning: The current setup is experimental, and may change if a more effective method is found.
 
-Requirements:
-- anyone should be able to upload samples
-- anyone should be able to download the samples
-- it should be possible to link to a specific sample 
-- it should be possible to have a discussion about a specific sample
-- we should use the same labels as for the typography index, so you can filter and select items to view.
-- people should be notified, if desired, when new samples are added
+If you want to submit an image to the repo please raise an issue and follow these instructions.
 
-After a few experiments, Github issues seemed to provide the most useful solution, but i'm open to alternatives. Github brings with it familiarity and the many useful things it just does so well.
+###The issue title
 
-I tried a wiki based approach, but eventually pages will get too long. Also, if you have multiple pictures in one wiki it's harder to link to one specific picture.
+Should have the following structure:
+```
+<script-tag> <lang-tag> <medium label> <one or more space-separated feature labels>
+```
 
-The one thing that would be nice, but that doesn't seem to come with Github, would be a Flickr-like album (see [an example](https://www.flickr.com/photos/ishida/albums/72157650248400402)), that allowed you to visually scan thumbnails of lots of samples at once, then zoom in to the one you want to use or leave notes on. It's a shame that Flickr is a subscription service, and that GitHub doesn't show previews of image files.
+For example:
 
-Having the samples uploaded to the repo makes it easy for anyone to download them, but it's a little painful to upload them to the repo then find the url to them so that you can link to it from the issue.  My guess is that most people will just drop a picture into an issue.
+```
+hebr he newsprint justification text-decoration
+```
 
-In this repo there are filters of three kinds
-1 the script (not language, but the language is mentioned at the start of each issue title)
-2 the feature (aligned with the typography index)
-3 the type of source (eg. book, newsprint, mockup, etc.)
+The script and lang tags should be those in BCP-47. [Find a tag](http://r12a.github.io/apps/subtags/).
 
-For example, see a list of samples about justification: https://github.com/w3c/type-samples/issues?q=is%3Aissue+is%3Aopen+label%3Ajustification
+The medium and feature labels should be taken from those provided for issues in this repo. If you need something different, leave me a note in the body of the issue.
 
-Or see all just the Arabic script samples about justification: https://github.com/w3c/type-samples/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Aarabic%20label%3Ajustification
+###The issue body
+
+Should start with an image. There should only be one image per issue. You should drag and drop the image into the issue, rather than point to it with a link.
+
+After the image, use the following syntax:
+
+```
+---
+img: <image file name>
+tag: <feature label> <short description>
+[possibly more lines like that just above]
+source: <description of the source of the image, or a link>
+---
+```
+
+For example:
+```
+---
+img: a841092a-f834-11e6-9d55-65efd06f1ea0.jpg
+tag: font-style Oblique-styled text leaning to the left.
+tag: abbreviation Heh with joining form and extended baseline in date.
+source: Asharq al Awsat, p1, 12 Dec 1994
+---
+```
+
+You can get the image name from the image placeholder just above.  Descriptions should be short and succinct, like titles.
+
+You can add descriptive text below, if needed.  It's also helpful to provide a text transcription of the content in the image for those who want to create tests, so that they can copy and paste the text.
+
+Github labels will be applied for you, and the picture will be added to the repo.
