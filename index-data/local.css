@@ -36,6 +36,17 @@ td {
 	box-shadow: 2px 2px 3px #c1c1c1;
     border: 1px solid #ccc;
 	}
-.sampleContainer {
+.fig {
 	vertical-align: middle;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	}
+.descList {
+	padding: 1em;
+	font-style: italic;
+	font-size: 90%;
+	}
+.descList p {
+	margin: 0;
 	}

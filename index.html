@@ -72,6 +72,23 @@ var maxpages = 2
 <h1> Type samples</h1>
 <section id="sidebarExtras">
 <form onChange="displayRepo(getFilter())">
+  <h2 class="notoc">Features</h2>
+  <ul>
+    <li><input value="abbreviation" type="radio" name="filter"/> Abbreviation</li>
+    <li><input value="counter-styles" type="radio" name="filter"/> Counter styles</li>
+    <li><input value="emphasis" type="radio" name="filter"/> Emphasis</li>
+    <li><input value="font-style" type="radio" name="filter"/> Font style</li>
+    <li><input value="fonts" type="radio" name="filter"/> Fonts</li>
+    <li><input value="hyphenation" type="radio" name="filter"/> Hyphenation</li>
+    <li><input value="initial-letter" type="radio" name="filter"/> Initial letter</li>
+    <li><input value="justification" type="radio" name="filter"/> Justification</li>
+    <li><input value="notes-footnotes" type="radio" name="filter"/> Notes, footnotes...</li>
+    <li><input value="punctuation" type="radio" name="filter"/> Punctuation</li>
+    <li><input value="ruby" type="radio" name="filter"/> Ruby</li>
+    <li><input value="quotations" type="radio" name="filter"/> Quotations</li>
+    <li><input value="text-decoration" type="radio" name="filter"/> Text-decoration</li>
+    <li><input value="vertical-text" type="radio" name="filter"/> Vertical text</li>
+  </ul>
   <h2 class="notoc">Scripts</h2>
   <ul>
     <li><input value="arabic" type="radio" name="filter"/> Arabic</li>
@@ -92,28 +109,11 @@ var maxpages = 2
     <li><input value="signage" type="radio" name="filter"/> Signage</li>
     <li><input value="webpage" type="radio" name="filter"/> Webpage</li>
   </ul>
-  <h2 class="notoc">Features</h2>
-  <ul>
-    <li><input value="abbreviation" type="radio" name="filter"/> Abbreviation</li>
-    <li><input value="counter-styles" type="radio" name="filter"/> Counter styles</li>
-    <li><input value="emphasis" type="radio" name="filter"/> Emphasis</li>
-    <li><input value="font-style" type="radio" name="filter"/> Font style</li>
-    <li><input value="fonts" type="radio" name="filter"/> Fonts</li>
-    <li><input value="hyphenation" type="radio" name="filter"/> Hyphenation</li>
-    <li><input value="initial-letter" type="radio" name="filter"/> Initial letter</li>
-    <li><input value="justification" type="radio" name="filter"/> Justification</li>
-    <li><input value="notes-footnotes" type="radio" name="filter"/> Notes, footnotes...</li>
-    <li><input value="punctuation" type="radio" name="filter"/> Punctuation</li>
-    <li><input value="ruby" type="radio" name="filter"/> Ruby</li>
-    <li><input value="quotations" type="radio" name="filter"/> Quotations</li>
-    <li><input value="text-decoration" type="radio" name="filter"/> Text-decoration</li>
-    <li><input value="vertical-text" type="radio" name="filter"/> Vertical text</li>
-  </ul>
 </form>
 </section>
 <section>
-  <p>This page lists pictures in the type-samples github repository.  Select the tags for which you want to retrieve pictures in the side column.</p>
-  <p id="total">Select a tag to the right...</p>
+  <p>This page lists pictures in the type-samples github repository.  Select the tags for which you want to retrieve pictures in the side column.
+  <span id="total">Select a tag to the right...</span></p>
 </section>
 <section id="rawdata">
 </section>
@@ -206,7 +206,6 @@ var maxpages = 2
 									
 			// Display repository information
 			function displayRepo(label) {
-				console.log('THIS ',label)
 				// Add a container to put the repository info and issues in
 				var table, tr, td, a, updated, toc, span
 				var labelSection = document.createElement('section');
@@ -236,54 +235,45 @@ var maxpages = 2
 				// display issues in order of most recently updated
 				for (var i=0;i<ikeys.length;i++) {
 					var issueData = idates[ikeys[i]]
-					//tr = document.createElement('tr')
-					//td = document.createElement('td')
-					//td.title = 'Issue number'
-					//td.textContent = issueData['number']
-					//tr.appendChild(td)
-					
-					//td = document.createElement('td')
-					// find labels
-					for (var j=0;j<issueData.labels.length;j++) {
-						if (issueData.labels[j].name == 'pending' || issueData.labels[j].name == 'track' || issueData.labels[j].name == 'close?' || issueData.labels[j].name == 'waiting' || issueData.labels[j].name == 'deferred') {
-							span = document.createElement('span')
-							span.setAttribute('style', 'background-color:#'+issueData.labels[j].color)
-							span.title = issueData.labels[j].name
-							span.className = 'labels'
-							span.textContent = issueData.labels[j].name+' '
-							td.appendChild(span)
-							}
-						}
-					a = document.createElement('a')
-					a.href = issueData['html_url']
-					a.target = '_blank'
-					
+
 					// get the image url
 					var url = issueData['body'].match(/https:\/\/cloud.githubusercontent.com\/assets\/([^\)]+)/)
 					if (url) {
-						console.log(url[0])
+						fig = document.createElement('div')
+						fig.className = 'fig'
 						
+						a = document.createElement('a')
+						a.href = issueData['html_url']
+						a.target = '_blank'
 						img = document.createElement('img')
 						img.src = url[0]
 						img.title = issueData['title']+' ('+issueData['number']+')'
 						img.alt = img.title
 						img.className = 'sample'
-						//div.appendChild(img)
-						//a.textContent = issueData['body']
+						a.appendChild(img)
+						
+						fig.appendChild(a)
+						
+						// get descriptions
+						//console.log(/tag: [^$]+/)
+						var desc = issueData['body'].match(/tag: [^\n]+/g)
+						console.log(desc)
+						if (desc) {
+							descList = document.createElement('div')
+							descList.className = 'descList'
+							figcap = document.createElement('p')
+							figcap.appendChild(document.createTextNode(desc[0].replace(/tag:[\s]+/,'tag:').replace(' ',' \u00A0\u00A0 ')))
+							for (k=1;k<desc.length;k++) {
+								p = document.createElement('p')
+								p.appendChild(document.createTextNode(desc[k].replace(/tag:[\s]+/,'tag:').replace(' ',' \u00A0\u00A0 ')))
+								descList.appendChild(p)
+								}
+							descList.appendChild(figcap)
+							fig.appendChild(descList)
+							}
+						
+						div.appendChild(fig)
 						}
-					a.appendChild(img)
-					div.appendChild(a)
-					//tr.appendChild(td)
-								
-					//td = document.createElement('td')
-					//td.className = 'date'
-					//td.title = 'Date last updated'
-					//updated = new Date(issueData['updated_at'])
-					//td.textContent = updated.getFullYear()+'-'+updated.getMonth()+'-'+updated.getDate()
-					//td.textContent = convertDate(updated)
-					//tr.appendChild(td)
-					
-					//table.appendChild(tr)
 					}
 				
 				labelSection.appendChild(div)
