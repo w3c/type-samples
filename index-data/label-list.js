@@ -3,6 +3,7 @@
 
 var labels = { 
 	'abbreviation':[],
+	'bidi-text':[],
 	'counter-styles':[],
 	'emphasis':[],
 	'font-style':[],
