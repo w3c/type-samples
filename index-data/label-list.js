@@ -2,6 +2,22 @@
 // Nothing will be produced if there's no open issue for a given label.
 
 var labels = { 
+	'abbreviation':[],
+	'counter-styles':[],
+	'emphasis':[],
+	'font-style':[],
+	'fonts':[],
+	'glyphs-diacritics':[],
+	'hyphenation':[],
+	'initial-letter':[],
+	'justification':[],
+	'notes-footnotes':[],
+	'punctuation':[],
+	'quotations':[],
+	'ruby':[],
+	'text-decoration':[],
+	'vertical-text':[],
+
 	'arabic':[],
 	'ethiopic':[],
 	'hebrew':[],
@@ -17,21 +33,6 @@ var labels = {
 	'newsprint':[],
 	'signage':[],
 	'webpage':[],
-
-	'abbreviation':[],
-	'counter-styles':[],
-	'emphasis':[],
-	'font-style':[],
-	'fonts':[],
-	'hyphenation':[],
-	'initial-letter':[],
-	'justification':[],
-	'notes-footnotes':[],
-	'punctuation':[],
-	'quotations':[],
-	'ruby':[],
-	'text-decoration':[],
-	'vertical-text':[],
 	}
 
 
