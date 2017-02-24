@@ -3,7 +3,7 @@ A place to find and contribute examples of typographic features in text, especia
 
 **You can use the [Visual Index](https://w3c.github.io/type-samples/) to search for samples.** (Currently still a prototype.)
 
-##How this works##
+##How to submit an image##
 
 _Warning: The current setup is experimental, and may change if a more effective method is found._
 
