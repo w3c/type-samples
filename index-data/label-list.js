@@ -19,6 +19,7 @@ var labels = {
 	'vertical-text':[],
 
 	'arabic':[],
+	'chinese':[],
 	'ethiopic':[],
 	'hebrew':[],
 	'japanese':[],
