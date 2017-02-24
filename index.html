@@ -261,11 +261,15 @@ var maxpages = 2
 						if (desc) {
 							descList = document.createElement('div')
 							descList.className = 'descList'
+							p = document.createElement('p')
+							p.className = 'sampleSummary'
+							p.appendChild(document.createTextNode(issueData['title']))
+							descList.appendChild(p)
 							figcap = document.createElement('p')
-							figcap.appendChild(document.createTextNode(desc[0].replace(/tag:[\s]+/,'tag:').replace(' ',' \u00A0\u00A0 ')))
+							figcap.appendChild(document.createTextNode(desc[0].replace(/tag:[\s]+/,'').replace(' ',' \u00A0\u00A0\u00A0 ')))
 							for (k=1;k<desc.length;k++) {
 								p = document.createElement('p')
-								p.appendChild(document.createTextNode(desc[k].replace(/tag:[\s]+/,'tag:').replace(' ',' \u00A0\u00A0 ')))
+								p.appendChild(document.createTextNode(desc[k].replace(/tag:[\s]+/,'').replace(' ',' \u00A0\u00A0\u00A0 ')))
 								descList.appendChild(p)
 								}
 							descList.appendChild(figcap)
