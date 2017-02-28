@@ -1,7 +1,10 @@
 # type-samples
 A place to find and contribute examples of typographic features in text, especially from non-Latin scripts.
 
-**You can use the [Visual Index](https://w3c.github.io/type-samples/) to search for samples.** (Currently still a prototype.)
+##How to find a sample
+Use the **[Visual Index](https://w3c.github.io/type-samples/)** (Currently still a prototype.)
+
+Click on a radio button in the right column to select what type of image you are interested in. Click on a thumbnail to see the image with metadata.
 
 ##How to submit an image##
 
