@@ -28,7 +28,7 @@ The medium and feature labels should be taken from those provided for issues in 
 
 ###The issue body
 
-Should start with an image. There should only be one image per issue. You should drag and drop the image into the issue, rather than point to it with a link.
+Should start with an image. **There should only be one image per issue.** You should drag and drop the image into the issue, rather than point to it with a link.
 
 After the image, use the following syntax:
 
