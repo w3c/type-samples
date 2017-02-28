@@ -6,6 +6,8 @@ Use the **[Visual Index](https://w3c.github.io/type-samples/)** (Currently still
 
 Click on a radio button in the right column to select what type of image you are interested in. Click on a thumbnail to see the image with metadata.
 
+When looking at an issue, you can click on the image to see a larger version.
+
 ##How to submit an image##
 
 _Warning: The current setup is experimental, and may change if a more effective method is found._
@@ -37,7 +39,6 @@ After the image, use the following syntax:
 
 ```
 ---
-img: <image file name>
 tag: <feature label> <short description>
 [possibly more lines like that just above]
 source: <description of the source of the image, or a link>
@@ -47,14 +48,13 @@ source: <description of the source of the image, or a link>
 For example:
 ```
 ---
-img: a841092a-f834-11e6-9d55-65efd06f1ea0.jpg
 tag: font-style Oblique-styled text leaning to the left.
 tag: abbreviation Heh with joining form and extended baseline in date.
 source: Asharq al Awsat, p1, 12 Dec 1994
 ---
 ```
 
-You can get the image name from the image placeholder just above.  Descriptions should be short and succinct, like titles.
+Descriptions should be short and succinct, like titles.
 
 You can add descriptive text below, if needed.  It's also helpful to provide a text transcription of the content in the image for those who want to create tests, so that they can copy and paste the text.
 
