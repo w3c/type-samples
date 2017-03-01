@@ -58,4 +58,7 @@ Descriptions should be short and succinct, like titles.
 
 You can add descriptive text below, if needed.  It's also helpful to provide a text transcription of the content in the image for those who want to create tests, so that they can copy and paste the text.
 
-Github labels will be applied for you, and the picture will be added to the repo.
+You won't be able to add github labels. They will be applied for you, and the picture will be added to the repo.
+
+The `<feature label>` should be one of the following (the list is likely to grow over time):
+`book, inscription, magazine, mockup, newsprint, printedmatter, signage, webpage, other`
