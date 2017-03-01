@@ -21,11 +21,14 @@ var labels = {
 
 	'arabic':[],
 	'chinese':[],
+	'cyrillic':[],
 	'ethiopic':[],
+	'greek':[],
 	'hebrew':[],
 	'japanese':[],
 	'mongolian':[],
-	'se-asian':[],
+	'se-asia':[],
+	'south-asia':[],
 	'tibetan':[],
 
 	'book':[],
@@ -33,6 +36,7 @@ var labels = {
 	'magazine':[],
 	'mockup':[],
 	'newsprint':[],
+	'printedmatter':[],
 	'signage':[],
 	'webpage':[],
 	}
