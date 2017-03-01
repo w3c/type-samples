@@ -13,12 +13,13 @@ var labels = {
 	'initial-letter':[],
 	'justification':[],
 	'notes-footnotes':[],
+	'numbers':[],
 	'punctuation':[],
 	'quotations':[],
 	'ruby':[],
 	'text-decoration':[],
 	'vertical-text':[],
-
+/*
 	'arabic':[],
 	'chinese':[],
 	'cyrillic':[],
@@ -29,6 +30,7 @@ var labels = {
 	'mongolian':[],
 	'se-asia':[],
 	'south-asia':[],
+	'thai':[],
 	'tibetan':[],
 
 	'book':[],
@@ -39,6 +41,6 @@ var labels = {
 	'printedmatter':[],
 	'signage':[],
 	'webpage':[],
-	}
+*/	}
 
 
