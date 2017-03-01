@@ -41,6 +41,9 @@ f.additionalLinks = ''
 <link rel="stylesheet" href="index-data/local.css" type="text/css" />
 <link rel="copyright" href="#copyright"/>
 <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<style>
+select { font-size: 1em; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif; border: 0; width: 100%; }
+</style>
 <script>
 // Note that the code is designed to pull a maximum of 200 issues - for more, change maxpages
 // It will only display issues with labels that correspond to those defined in the labels variable
@@ -59,6 +62,8 @@ var debug = false
 
 var issues = []
 var maxpages = 2
+var scriptFilter = ''
+var mediaFilter = ''
 
 </script>
 </head>
@@ -72,55 +77,58 @@ var maxpages = 2
 <h1> Type samples</h1>
 <section id="sidebarExtras">
 <form onChange="displayRepo(getFilter())">
-  <h2 class="notoc">Features</h2>
-  <ul>
-    <li><input value="abbreviation" type="radio" name="filter"/> Abbreviation</li>
-    <li><input value="bidi-text" type="radio" name="filter"/> Bidirectional text</li>
-    <li><input value="counter-styles" type="radio" name="filter"/> Counter styles</li>
-    <li><input value="emphasis" type="radio" name="filter"/> Emphasis</li>
-    <li><input value="font-style" type="radio" name="filter"/> Font style</li>
-    <li><input value="fonts" type="radio" name="filter"/> Fonts</li>
-    <li><input value="glyphs-diacritics" type="radio" name="filter"/> Glyphs &amp; diacritics</li>
-    <li><input value="hyphenation" type="radio" name="filter"/> Hyphenation</li>
-    <li><input value="initial-letter" type="radio" name="filter"/> Initial letter</li>
-    <li><input value="justification" type="radio" name="filter"/> Justification</li>
-    <li><input value="notes-footnotes" type="radio" name="filter"/> Notes, footnotes...</li>
-    <li><input value="punctuation" type="radio" name="filter"/> Punctuation</li>
-    <li><input value="ruby" type="radio" name="filter"/> Ruby</li>
-    <li><input value="quotations" type="radio" name="filter"/> Quotations</li>
-    <li><input value="text-decoration" type="radio" name="filter"/> Text-decoration</li>
-    <li><input value="vertical-text" type="radio" name="filter"/> Vertical text</li>
-  </ul>
-  <h2 class="notoc">Scripts</h2>
-  <ul>
-    <li><input value="arabic" type="radio" name="filter"/> Arabic</li>
-    <li><input value="chinese" type="radio" name="filter"/> Chinese</li>
-    <li><input value="cyrillic" type="radio" name="filter"/> Cyrillic</li>
-    <li><input value="ethiopic" type="radio" name="filter"/> Ethiopic</li>
-    <li><input value="greek" type="radio" name="filter"/> Greek</li>
-    <li><input value="hebrew" type="radio" name="filter"/> Hebrew</li>
-    <li><input value="japanese" type="radio" name="filter"/> Japanese</li>
-    <li><input value="mongolian" type="radio" name="filter"/> Mongolian</li>
-    <li><input value="se-asia" type="radio" name="filter"/> South East Asia</li>
-    <li><input value="south-asia" type="radio" name="filter"/> South Asia</li>
-    <li><input value="thai" type="radio" name="filter"/> Thai</li>
-    <li><input value="tibetan" type="radio" name="filter"/> Tibetan</li>
-  </ul>
-  <h2 class="notoc">Media</h2>
-  <ul>
-    <li><input value="book" type="radio" name="filter"/> Book</li>
-    <li><input value="inscription" type="radio" name="filter"/> Inscription</li>
-    <li><input value="magazine" type="radio" name="filter"/> Magazine</li>
-    <li><input value="mockup" type="radio" name="filter"/> Mockup</li>
-    <li><input value="newsprint" type="radio" name="filter"/> Newsprint</li>
-    <li><input value="printedmatter" type="radio" name="filter"/> Printed matter</li>
-    <li><input value="signage" type="radio" name="filter"/> Signage</li>
-    <li><input value="webpage" type="radio" name="filter"/> Webpage</li>
-  </ul>
+  <h2 class="notoc">Select a feature</h2>
+  <select id="features" size="10">
+    <option value="abbreviation" type="radio" name="filter">Abbreviation</option>
+    <option value="bidi-text" type="radio" name="filter">Bidirectional text</option>
+    <option value="counter-styles" type="radio" name="filter">Counter styles</option>
+    <option value="emphasis" type="radio" name="filter">Emphasis</option>
+    <option value="font-style" type="radio" name="filter">Font style</option>
+    <option value="fonts" type="radio" name="filter">Fonts</option>
+    <option value="glyphs-diacritics" type="radio" name="filter">Glyphs &amp; diacritics</option>
+    <option value="hyphenation" type="radio" name="filter">Hyphenation</option>
+    <option value="initial-letter" type="radio" name="filter">Initial letter</option>
+    <option value="justification" type="radio" name="filter">Justification</option>
+    <option value="notes-footnotes" type="radio" name="filter">Notes, footnotes...</option>
+    <option value="numbers" type="radio" name="filter">Numbers</option>
+    <option value="punctuation" type="radio" name="filter">Punctuation</option>
+    <option value="ruby" type="radio" name="filter">Ruby</option>
+    <option value="quotations" type="radio" name="filter">Quotations</option>
+    <option value="text-decoration" type="radio" name="filter">Text-decoration</option>
+    <option value="vertical-text" type="radio" name="filter">Vertical text</option>
+  </select>
+  <h2 class="notoc">Filter by script</h2>
+  <select id="scripts" size="10">
+    <option value="" type="radio" name="filter" selected>All</option>
+    <option value="arabic" type="radio" name="filter">Arabic</option>
+    <option value="chinese" type="radio" name="filter">Chinese</option>
+    <option value="cyrillic" type="radio" name="filter">Cyrillic</option>
+    <option value="ethiopic" type="radio" name="filter">Ethiopic</option>
+    <option value="greek" type="radio" name="filter">Greek</option>
+    <option value="hebrew" type="radio" name="filter">Hebrew</option>
+    <option value="japanese" type="radio" name="filter">Japanese</option>
+    <option value="mongolian" type="radio" name="filter">Mongolian</option>
+    <option value="se-asia" type="radio" name="filter">South East Asia</option>
+    <option value="south-asia" type="radio" name="filter">South Asia</option>
+    <option value="thai" type="radio" name="filter">Thai</option>
+    <option value="tibetan" type="radio" name="filter">Tibetan</option>
+  </select>
+  <h2 class="notoc">Filter by medium</h2>
+  <select id="media" size="10">
+    <option value="" type="radio" name="filter" selected>All</option>
+    <option value="book" type="radio" name="filter">Book</option>
+    <option value="inscription" type="radio" name="filter">Inscription</option>
+    <option value="magazine" type="radio" name="filter">Magazine</option>
+    <option value="mockup" type="radio" name="filter">Mockup</option>
+    <option value="newsprint" type="radio" name="filter">Newsprint</option>
+    <option value="printedmatter" type="radio" name="filter">Printed matter</option>
+    <option value="signage" type="radio" name="filter">Signage</option>
+    <option value="webpage" type="radio" name="filter">Webpage</option>
+  </select>
 </form>
 </section>
 <section>
-  <p>This page lists pictures in the type-samples github repository.  Select the tags for which you want to retrieve pictures in the right column. When the thumbnails appear, click on an image to see the full entry.<span id="total"></span></p>
+  <p>This page lists pictures in the type-samples github repository.  You can narrow your search by selecting a script or medium. Select the feature for which you want to retrieve pictures using the selection control. The most recently added or changed items appear at the top of the list. When the thumbnails appear, click on an image to see the full entry. <span id="total"></span></p>
 </section>
 <section id="rawdata">
 </section>
@@ -132,21 +140,13 @@ var maxpages = 2
 		
 		
 			function getFilter () {
-				var filter = ''
-				var nodes = document.getElementsByName('filter')
-				for (var i=0;i<nodes.length;i++) {
-					//console.log(nodes[i], nodes[i].checked, nodes[i].value)
-					if (nodes[i].checked) {
-						filter = nodes[i].value
-						break
-						}
-					}
-				//console.log(filter)
-				return filter
+				scriptFilter = document.getElementById('scripts').value
+				mediaFilter = document.getElementById('media').value
+				
+				return document.getElementById('features').value
 				}
 						
 			function getAllData () {
-				console.log(labels)
 				for (var p=1;p<maxpages+1;p++) fetchIssues(p)
 				var timer = setInterval(function() {
 					if (counter === 0) {
@@ -239,10 +239,21 @@ var maxpages = 2
 				var ikeys = Object.keys(idates)
 				ikeys.sort().reverse()
 				
+				// ikeys is a sorted set of keys for idates for a given label
+				// idates is an object containing issue records for a given label
+				
 				// display issues in order of most recently updated
 				for (var i=0;i<ikeys.length;i++) {
 					var issueData = idates[ikeys[i]]
 
+					// get a list of labels for this item
+					var itemLabelList = ''
+					for (j=0;j<issueData['labels'].length;j++) itemLabelList += issueData['labels'][j].name + ' '
+										
+					// abort if the other selected filters are not found
+					if (scriptFilter && ! itemLabelList.match(scriptFilter)) continue
+					if (mediaFilter && ! itemLabelList.match(mediaFilter)) continue
+					
 					// get the image url
 					var url = issueData['body'].match(/https:\/\/cloud.githubusercontent.com\/assets\/([^\)]+)/)
 					if (url) {
@@ -264,7 +275,6 @@ var maxpages = 2
 						// get descriptions
 						//console.log(/tag: [^$]+/)
 						var desc = issueData['body'].match(/tag: [^\n]+/g)
-						console.log(desc)
 						if (desc) {
 							descList = document.createElement('div')
 							descList.className = 'descList'
@@ -294,90 +304,7 @@ var maxpages = 2
 				document.getElementById('total').textContent = "There are "+issues.length+" items."
 			}
 
-			function convertDate (date) {
-				// date is a date object
-				out = ''
-				switch (date.getUTCMonth()) {
-					case 0: out += 'Jan'; break
-					case 1: out += 'Feb'; break
-					case 2: out += 'Mar'; break
-					case 3: out += 'Apr'; break
-					case 4: out += 'May'; break
-					case 5: out += 'Jun'; break
-					case 6: out += 'Jul'; break
-					case 7: out += 'Aug'; break
-					case 8: out += 'Sep'; break
-					case 9: out += 'Oct'; break
-					case 10: out += 'Nov'; break
-					case 11: out += 'Dec'; break
-					}
-				out += ' '+date.getDate()+', '+date.getFullYear()
-				return out
-				}
 				
-				function dumpList () {
-					// writes a list of issues to the textarea at the bottom of the page
-					var sections = document.querySelectorAll('section')
-					console.log(sections.length)
-					var out = ''
-					
-					for (s=3;s<sections.length;s++) {
-						if (sections[s].querySelector('h2') === null) continue
-						var h2 = sections[s].querySelector('h2').textContent
-						var issues = sections[s].querySelectorAll('a')
-						
-						out += h2+"\n"
-						for (var i=1;i<issues.length;i++) {
-							out += '• ' + issues[i].textContent+'\n  '+issues[i].href+'\n\n'
-							}
-						out += '\n\n'
-						}
-					
-					document.getElementById('dumparea').style.display = 'block'
-					document.getElementById('dumpfield').value = out
-					document.getElementById('dumpfield').select()
-					}
-				
-				function dumpByLabel (label) {
-					// writes a list of pending issues to the textarea at the bottom of the page
-					// label: either 'pending' or 'closed'
-					var sections = document.querySelectorAll('section')
-					console.log(sections.length)
-					var out = ''
-					
-					for (s=3;s<sections.length;s++) {
-						if (sections[s].querySelector('h2') === null) continue
-						
-						var h2 = sections[s].querySelector('h2').textContent
-						var issues = sections[s].querySelectorAll('td')
-						
-						// if this section doesn't contain pending items move on
-						var labelFound = false
-						var spans = sections[s].querySelectorAll('span')
-						for (k=0;k<spans.length;k++) {
-							if (spans[k].title === label) {
-									labelFound = true
-									}
-							}
-						if (! labelFound) continue
-						
-						out += h2+"\n"
-						for (var i=1;i<issues.length;i++) {
-							var spans = issues[i].querySelectorAll('span')
-							for (j=0;j<spans.length;j++) {
-								if (spans[j].title === label) {
-									var a = issues[i].querySelector('a')
-									out += '• ' + a.textContent+'\n  '+a.href+'\n\n'
-									}
-								}
-							}
-						out += '\n\n'
-						}
-					
-					document.getElementById('dumparea').style.display = 'block'
-					document.getElementById('dumpfield').value = out
-					document.getElementById('dumpfield').select()
-					}
 </script>
 <script>window.onload = getAllData()</script>
 
