@@ -61,4 +61,4 @@ You can add descriptive text below, if needed.  It's also helpful to provide a t
 You won't be able to add github labels. They will be applied for you, and the picture will be added to the repo.
 
 The `<feature label>` should be one of the following (the list is likely to grow over time):
-`book, inscription, magazine, mockup, newsprint, printedmatter, signage, webpage, other`
+`book, inscription, magazine, mockup, newsprint, printedmatter, signage, software, webpage, other`
