@@ -14,7 +14,9 @@ When looking at an issue, you can click on the image to see a larger version.
 
 _Warning: The current setup is experimental, and may change if a more effective method is found._
 
-If you want to submit an image to the repo please raise an issue and follow these instructions. The repo is moderated.  The moderator will add the labels that make the issue visible in the index, and may edit the title and body text you provided before doing so.
+If you want to submit an image to the repo please raise an issue and follow these instructions. 
+
+Before contributing an image, you must  read [CONTRIBUTING.md](https://github.com/w3c/type-samples/blob/gh-pages/CONTRIBUTING.md). By submitting an image you indicate that you agree to be bound by those stipulations. The repo is moderated.  If an image submission is accepted, the moderator will add the labels that make the issue visible in the index, but may edit the title and body text you provided before doing so.
 
 ###The issue title
 
@@ -68,3 +70,4 @@ You can add descriptive text below, if really needed.  It's also helpful to prov
 
 You won't be able to add github labels. They will be applied for you. And you shouldn't need to use pull requests.
 
+**Note:** This compilation is made available under the [Software and Document License](http://www.w3.org/Consortium/Legal/copyright-software). W3C makes no copyright assertions about the status of user-contributed images.
