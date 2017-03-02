@@ -16,7 +16,7 @@ _Warning: The current setup is experimental, and may change if a more effective 
 
 If you want to submit an image to the repo please raise an issue and follow these instructions. 
 
-Before contributing an image, you must  read [CONTRIBUTING.md](https://github.com/w3c/type-samples/blob/gh-pages/CONTRIBUTING.md). By submitting an image you indicate that you agree to be bound by those stipulations. The repo is moderated.  If an image submission is accepted, the moderator will add the labels that make the issue visible in the index, but may edit the title and body text you provided before doing so.
+By submitting an image you indicate that you agree to be bound by the stipulations in [CONTRIBUTING.md](https://github.com/w3c/type-samples/blob/gh-pages/CONTRIBUTING.md). The repo is moderated.  If an image submission is accepted, the moderator will add the labels that make the issue visible in the index, but may edit the title and body text you provided before doing so.
 
 ###The issue title
 
