@@ -20,7 +20,7 @@ If you want to submit an image to the repo please raise an issue and follow thes
 
 Should have the following structure:
 ```
-<script-tag> <lang-tag> <media-label> <one or more space-separated feature labels>
+<script-tag> <lang-tag> <media-label> <one or more space-separated feature-labels>
 ```
 
 For example:
@@ -47,7 +47,7 @@ After the image, use the following syntax:
 
 ```
 ---
-tag: <feature label> <short description>
+tag: <feature-label> <short description>
 [possibly more lines like that just above]
 source: <description of the source of the image, and a link for online resources>
 ---
