@@ -1,10 +1,12 @@
 # type-samples
 A place to find and contribute examples of typographic features in text, especially from non-Latin scripts.
 
+**Please do not use the issues in this repo to discuss typographic features.** Each issue should just be a referenceable storage location fo one image. Any comments below that image and its metadata should only refer to the image itself (eg. suitability, clarification, etc), and not lead to a general discussion about the feature illustrated. Those discussions should be moved elsewhere.
+
 ##How to find a sample
 Use the **[Visual Index](https://w3c.github.io/type-samples/)** (Currently still a prototype.)
 
-Click on a radio button in the right column to select what type of image you are interested in. Click on a thumbnail to see the image with metadata.
+Click on a radio button in the right column to select what type of image you are interested in. Refine it by script/medium, if you want. Click on a thumbnail to see the image with metadata.
 
 When looking at an issue, you can click on the image to see a larger version.
 
