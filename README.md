@@ -14,13 +14,13 @@ When looking at an issue, you can click on the image to see a larger version.
 
 _Warning: The current setup is experimental, and may change if a more effective method is found._
 
-If you want to submit an image to the repo please raise an issue and follow these instructions.
+If you want to submit an image to the repo please raise an issue and follow these instructions. The repo is moderated.  The moderator will add the labels that make the issue visible in the index, and may edit the title and body text you provided before doing so.
 
 ###The issue title
 
 Should have the following structure:
 ```
-<script-tag> <lang-tag> <medium label> <one or more space-separated feature labels>
+<script-tag> <lang-tag> <media-label> <one or more space-separated feature labels>
 ```
 
 For example:
@@ -31,7 +31,13 @@ hebr he newsprint justification text-decoration
 
 The script and lang tags should be those in BCP-47. [Find a tag](http://r12a.github.io/apps/subtags/).
 
-The medium and feature labels should be taken from those provided for issues in this repo. If you need something different, leave me a note in the body of the issue.
+The `<media-label>` should be one of the following (the list is likely to grow over time). There should only be ONE feature label in the issue title.
+`book, inscription, magazine, mockup, newsprint, printedmatter, signage, software, webpage, other`
+
+There should be only ONE `feature-label` per line in the issue body, but ALL feature labels used in the body should appear at the end of the title (space separated).  Feature labels should be one of the following.
+`abbreviation bidi-text counter-styles emphasis font-style fonts glyphs-diacritics hyphenation initial-letter inline-spacing justification notes-footnotes numbers punctuation quotations ruby text-decoration vertical-text`
+
+If you need something different, leave a note in the body of the issue.
 
 ###The issue body
 
@@ -43,7 +49,7 @@ After the image, use the following syntax:
 ---
 tag: <feature label> <short description>
 [possibly more lines like that just above]
-source: <description of the source of the image, or a link>
+source: <description of the source of the image, and a link for online resources>
 ---
 ```
 
@@ -56,11 +62,9 @@ source: Asharq al Awsat, p1, 12 Dec 1994
 ---
 ```
 
-Descriptions should be short and succinct, like titles.
+Descriptions should be short and succinct, like titles. They should indicate what the image illustrates.
 
-You can add descriptive text below, if needed.  It's also helpful to provide a text transcription of the content in the image for those who want to create tests, so that they can copy and paste the text.
+You can add descriptive text below, if really needed.  It's also helpful to provide a text transcription of the content in the image for those who want to create tests, so that they can copy and paste the text.
 
-You won't be able to add github labels. They will be applied for you, and the picture will be added to the repo.
+You won't be able to add github labels. They will be applied for you. And you shouldn't need to use pull requests.
 
-The `<feature label>` should be one of the following (the list is likely to grow over time):
-`book, inscription, magazine, mockup, newsprint, printedmatter, signage, software, webpage, other`
