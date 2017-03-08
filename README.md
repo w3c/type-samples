@@ -37,7 +37,7 @@ The `<media-label>` should be one of the following (the list is likely to grow o
 `book, inscription, magazine, mockup, newsprint, printedmatter, signage, software, webpage, other`
 
 There should be only ONE `feature-label` per line in the issue body, but ALL feature labels used in the body should appear at the end of the title (space separated).  Feature labels should be one of the following.
-`abbreviation bidi-text counter-styles emphasis font-style fonts glyphs-diacritics hyphenation initial-letter inline-spacing justification notes-footnotes numbers punctuation quotations ruby text-decoration vertical-text`
+`abbreviation bidi-text emphasis font-style fonts glyphs-diacritics hyphenation initial-letter inline-spacing justification lists notes-footnotes numbers punctuation quotations ruby text-decoration vertical-text`
 
 If you need something different, leave a note in the body of the issue.
 
