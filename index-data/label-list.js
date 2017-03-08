@@ -4,7 +4,6 @@
 var labels = { 
 	'abbreviation':[],
 	'bidi-text':[],
-	'counter-styles':[],
 	'emphasis':[],
 	'font-style':[],
 	'fonts':[],
@@ -12,6 +11,7 @@ var labels = {
 	'hyphenation':[],
 	'initial-letter':[],
 	'justification':[],
+	'lists':[],
 	'notes-footnotes':[],
 	'numbers':[],
 	'punctuation':[],
@@ -19,28 +19,5 @@ var labels = {
 	'ruby':[],
 	'text-decoration':[],
 	'vertical-text':[],
-/*
-	'arabic':[],
-	'chinese':[],
-	'cyrillic':[],
-	'ethiopic':[],
-	'greek':[],
-	'hebrew':[],
-	'japanese':[],
-	'mongolian':[],
-	'se-asia':[],
-	'south-asia':[],
-	'thai':[],
-	'tibetan':[],
-
-	'book':[],
-	'inscription':[],
-	'magazine':[],
-	'mockup':[],
-	'newsprint':[],
-	'printedmatter':[],
-	'signage':[],
-	'webpage':[],
-*/	}
-
+	}
 
