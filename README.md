@@ -3,14 +3,14 @@ A place to find and contribute examples of typographic features in text, especia
 
 **Please do not use the issues in this repo to discuss typographic features.** Each issue should just be a referenceable storage location fo one image. Any comments below that image and its metadata should only refer to the image itself (eg. suitability, clarification, etc), and not lead to a general discussion about the feature illustrated. Those discussions should be moved elsewhere.
 
-##How to find a sample
+## How to find a sample
 Use the **[Visual Index](https://w3c.github.io/type-samples/)** (Currently still a prototype.)
 
 Click on a radio button in the right column to select what type of image you are interested in. Refine it by script/medium, if you want. Click on a thumbnail to see the image with metadata.
 
 When looking at an issue, you can click on the image to see a larger version.
 
-##How to submit an image##
+## How to submit an image
 
 _Warning: The current setup is experimental, and may change if a more effective method is found._
 
@@ -18,7 +18,7 @@ If you want to submit an image to the repo please raise an issue and follow thes
 
 By submitting an image you indicate that you agree to be bound by the stipulations in [CONTRIBUTING.md](https://github.com/w3c/type-samples/blob/gh-pages/CONTRIBUTING.md). The repo is moderated.  If an image submission is accepted, the moderator will add the labels that make the issue visible in the index, but may edit the title and body text you provided before doing so.
 
-###The issue title
+### The issue title
 
 Should have the following structure:
 ```
@@ -41,7 +41,7 @@ There should be only ONE `feature-label` per line in the issue body, but ALL fea
 
 If you need something different, leave a note in the body of the issue.
 
-###The issue body
+### The issue body
 
 Should start with an image. **There should only be one image per issue.** You should drag and drop the image into the issue, rather than point to it with a link.
 
