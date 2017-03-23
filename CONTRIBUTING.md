@@ -1,4 +1,4 @@
-##Contributions
+## Contributions
 
 We welcome contribution of samples to the type-samples repository. The maintainers reserve the right to approve or reject images, including because they are inappropriate or duplicate existing samples.
 
