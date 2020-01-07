@@ -1,9 +1,10 @@
-title should be: script_tag   lang_tag   media_label   one_or_more_space_separated_feature_labels
-replace this and previous line with the picture
+title should be: script_tag_label  lang_tag  media_label  index_label(s)
+use existing labels, without the character before the colon, and separate by space
+replace this and previous lines with the picture
 
 
 ---
-tag: feature_label short_description
+tag: index_label short_description
 [possibly more lines like that just above]
-source: description_of_the_source_of_the_image_and_a_link_for_online_resources
+source: description_of_the_image_source_and_link_for_online_resources
 ----
