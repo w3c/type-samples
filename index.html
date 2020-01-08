@@ -36,11 +36,9 @@ f.additionalLinks = ''
 <script src="https://w3c.github.io/i18n-drafts/javascript/boilerplate-text/boilerplate-en.js"></script><!--TRANSLATORS must change -en to the subtag for their language!-->
 <script src="https://w3c.github.io/i18n-drafts/javascript/doc-structure/sitepage.js"> </script>
 <script src="https://w3c.github.io/i18n-drafts/javascript/articletoc-html5.js"></script>
-<!--script src="index-data/label-list.js"></script-->
 <link rel="stylesheet" href="https://w3c.github.io/i18n-drafts/style/sitepage-2016.css" />
 <link rel="stylesheet" href="index-data/local.css" />
 <link rel="copyright" href="#copyright"/>
-<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <style>
 select { font-size: 1em; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif; border: 0; width: 100%; }
 #toclocation { display: none; }
@@ -115,16 +113,7 @@ var mediaFilter = ''
 					if (counter === 0) {
 						clearInterval(timer)
 						if (debug) console.log('finished')
-						
-						// group issues by label, adding to the labels array
-						//for (var i=0; i<issues.length; i++) {
-						//	if (issues[i].labels) {
-						//		for (var l=0;l<issues[i].labels.length;l++) {
-						//			if (labels[issues[i].labels[l].name]) labels[issues[i].labels[l].name].push(issues[i])
-						//			}
-						//		}
-						//	}
-						
+												
 						//console.log(issues)
 						showGet()
 						}
@@ -172,10 +161,6 @@ var mediaFilter = ''
 				
 				div = document.createElement('div')
 				div.className = 'sampleContainer'
-				
-				//console.log('scripts',document.getElementById('scripts').value)
-				//console.log('media', document.getElementById('media').value)
-				//console.log('features',document.getElementById('features').value)
 				
 				// display issues in order of issues array
 				var labelSet = new Set()
@@ -237,7 +222,6 @@ var mediaFilter = ''
 				
 				labelSection.appendChild(div)
 				// Add the label header to the DOM
-				//document.getElementById("rawdata").appendChild(labelSection)
 				document.getElementById("rawdata").replaceChild(labelSection, document.getElementById("rawdata").firstChild)
 				document.getElementById('total').textContent = "There are "+issues.length+" items."
 			}
@@ -253,7 +237,7 @@ function showGet () {
 		}
 	if (feature != '') { displayRepo(feature) }
 	
-	var titleList = []
+	var titleList = []  // an array holding all the issue titles
 	for (let i=0;i<issues.length;i++) {
 		if (issues[i].labels.length > 0) titleList.push(issues[i].title)
 		}
@@ -281,7 +265,7 @@ function showGet () {
 	
 	var scriptsOut = ['<option value="" type="radio" name="filter" selected>All</option>\n']
 	for (key in scripts) {
-		scriptsOut.push('<option value="'+key+'" type="radio" name="filter">'+key+' ('+scripts[key]+')</option>\n')
+		scriptsOut.push('<option value="s:'+key+'" type="radio" name="filter">'+key+' ('+scripts[key]+')</option>\n')
 		}
 	scriptsOut.sort()
 	out = ''
@@ -291,7 +275,7 @@ function showGet () {
 
 	var mediaOut = ['<option value="" type="radio" name="filter" selected>All</option>\n']
 	for (key in media) {
-		mediaOut.push('<option value="'+key+'" type="radio" name="filter">'+key+' ('+media[key]+')</option>\n')
+		mediaOut.push('<option value="m:'+key+'" type="radio" name="filter">'+key+' ('+media[key]+')</option>\n')
 		}
 	mediaOut.sort()
 	out = ''
@@ -300,7 +284,7 @@ function showGet () {
 		
 	var featureOut = ['<option value="" type="radio" name="filter" selected>All</option>\n']
 	for (key in features) {
-		featureOut.push('<option value="'+key+'" type="radio" name="filter">'+key+' ('+features[key]+')</option>\n')
+		featureOut.push('<option value="i:'+key+'" type="radio" name="filter">'+key+' ('+features[key]+')</option>\n')
 		}
 	featureOut.sort()
 	out = ''
