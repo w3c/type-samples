@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-Fill this issue out following [these instructions](https://github.com/w3c/type-samples/blob/gh-pages/README.md#how-to-submit-an-image). Then delete this paragraph and drag and drop the picture in its place.
+Fill this issue out following the instructions at https://github.com/w3c/type-samples/blob/gh-pages/README.md#how-to-submit-an-image. It's important to get this right, if the picture is to show up in the type samples index! Then delete this paragraph and drag and drop the picture in its place.
 
 ---
 tag: index_label short_description
