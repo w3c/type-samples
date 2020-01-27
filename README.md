@@ -12,7 +12,6 @@ When looking at an issue, you can click on the image to see a larger version.
 
 ## How to submit an image
 
-_Warning: The current setup is experimental, and may change if a more effective method is found._
 
 If you want to submit an image to the repo please raise an issue and follow these instructions. 
 
@@ -22,7 +21,7 @@ By submitting an image you indicate that you agree to be bound by the stipulatio
 
 Should have the following structure:
 ```
-<script-tag> <lang-tag> <media-label> <one or more space-separated feature-labels>
+<script_tag> <lang_tag> <media_label> <index-label> [<more_index_labels>]
 ```
 
 For example:
@@ -31,15 +30,11 @@ For example:
 hebr he newsprint justification text-decoration
 ```
 
-The script and lang tags should be those in BCP-47. [Find a tag](http://r12a.github.io/apps/subtags/).
+- Script and language tags must conform to BCP47. Find tags at https://r12a.github.io/app-subtags/
+- The media label must be one of the violet-coloured labels at https://github.com/w3c/type-samples/labels **without the m:**. Use only only ONE media label in the issue title.
+- There can be more than one, space-separated, index label. They must be one of the yellow labels at https://github.com/w3c/type-samples/labels **without the i:**.
 
-The `<media-label>` should be one of the following (the list is likely to grow over time). There should only be ONE feature label in the issue title.
-`book, inscription, magazine, mockup, newsprint, printedmatter, signage, software, webpage, other`
-
-There should be only ONE `feature-label` per line in the issue body, but ALL feature labels used in the body should appear at the end of the title (space separated).  Feature labels should be one of the following.
-`abbreviation bidi-text emphasis font-style fonts glyphs-diacritics hyphenation initial-letter inline-spacing justification lists notes-footnotes numbers punctuation quotations ruby text-decoration vertical-text`
-
-If you need something different, leave a note in the body of the issue.
+It's important to get this line right if you want the picture to show up in [the index](https://w3c.github.io/type-samples/).
 
 ### The issue body
 
@@ -49,7 +44,7 @@ After the image, use the following syntax:
 
 ```
 ---
-tag: <feature-label> <short description>
+tag: <index_label> <short_description>
 [possibly more lines like that just above]
 source: <description of the source of the image, and a link for online resources>
 ---
@@ -64,9 +59,11 @@ source: Asharq al Awsat, p1, 12 Dec 1994
 ---
 ```
 
+There must be the same number of tag lines as there are index labels in the title. Each tag line must have **only one** index label.
+
 Descriptions should be short and succinct, like titles. They should indicate what the image illustrates.
 
-You can add descriptive text below, if really needed.  It's also helpful to provide a text transcription of the content in the image for those who want to create tests, so that they can copy and paste the text.
+You can add descriptive text in comments below, if really needed.  It's also helpful to provide a text transcription of the content in the image for those who want to create tests, so that they can copy and paste the text.
 
 You won't be able to add github labels. They will be applied for you. And you shouldn't need to use pull requests.
 
