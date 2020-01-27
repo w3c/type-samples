@@ -63,6 +63,8 @@ There must be the same number of tag lines as there are index labels in the titl
 
 Descriptions should be short and succinct, like titles. They should indicate what the image illustrates.
 
+### Other stuff
+
 You can add descriptive text in comments below, if really needed.  It's also helpful to provide a text transcription of the content in the image for those who want to create tests, so that they can copy and paste the text.
 
 You won't be able to add github labels. They will be applied for you. And you shouldn't need to use pull requests.
