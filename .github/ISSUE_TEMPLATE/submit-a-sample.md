@@ -1,7 +1,7 @@
 ---
 name: Submit a sample
 about: Use this template to submit a picture.
-title: script_tag_label  lang_tag  media_label  index_label
+title: script_tag  lang_tag  media_label  index_label
 labels: pending
 assignees: ''
 
