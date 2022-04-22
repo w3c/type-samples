@@ -34,14 +34,15 @@ f.additionalLinks = ''
 <script src="index-data/translations.js"> </script>
 <script src="https://w3c.github.io/i18n-drafts/javascript/doc-structure/article-dt.js"> </script>
 <script src="https://w3c.github.io/i18n-drafts/javascript/boilerplate-text/boilerplate-en.js"></script><!--TRANSLATORS must change -en to the subtag for their language!-->
-<script src="https://w3c.github.io/i18n-drafts/javascript/doc-structure/sitepage.js"> </script>
-<script src="https://w3c.github.io/i18n-drafts/javascript/articletoc-html5.js"></script>
-<link rel="stylesheet" href="https://w3c.github.io/i18n-drafts/style/sitepage-2016.css" />
+<script src="https://w3c.github.io/i18n-drafts/javascript/doc-structure/sitepage-2022.js"> </script>
+<script src="https://w3c.github.io/i18n-drafts/javascript/articletoc-2022.js"></script>
+<link rel="stylesheet" href="https://w3c.github.io/i18n-drafts/style/sitepage-2022.css" />
 <link rel="stylesheet" href="index-data/local.css" />
 <link rel="copyright" href="#copyright"/>
 <style>
 select { font-size: 1em; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif; border: 0; width: 100%; }
 #toclocation { display: none; }
+.sampleContainer { margin-inline-start: 7.5%; margin-inline-end: 30%; }
 </style>
 <script>
 // Note that the code is designed to pull a maximum of 200 issues - for more, change maxpages
@@ -87,12 +88,19 @@ var mediaFilter = ''
   </select>
 </form>
 </section>
-<section>
-  <p>This page lists pictures in the <a href="https://github.com/w3c/type-samples">type-samples github repository</a>.  <span id="total"></span></p>
-</section>
-<section id="rawdata"><h2>How to use this</h2>
-<p style="font-size:120%; margin-top:1em;">Click on one or more labels to the right to show a list of samples. If you select multiple labels, you'll only see items with both labels. (Note: If you set all options to 'All' it may take a while to download all entries.) </p>
-<p style="font-size:120%; margin-top:1em;">When the thumbnails appear, click on an image to see the full entry.</p>
+
+
+
+<p>This page lists pictures in the <a href="https://github.com/w3c/type-samples">type-samples github repository</a>.  <span id="total"></span></p>
+
+
+<div id="content">
+
+<section id="rawdata">
+<h2>How to use this</h2>
+
+<p>Click on one or more labels to the right to show a list of samples. If you select multiple labels, you'll only see items with both labels. (Note: If you set all options to 'All' it may take a while to download all entries.) </p>
+<p>When the thumbnails appear, click on an image to see the full entry.</p>
 </section>
 
 
@@ -297,6 +305,7 @@ function showGet () {
 <script>document.getElementById('thefooter').innerHTML = g.bottomOfPage</script> 
 <script>completePage()</script>
 
+</div>
 </div>
 </body>
 </html>
