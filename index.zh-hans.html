@@ -1,49 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-hans">
 <head>
-<meta charset="utf-8" />
-<title>Type samples index</title>
-<meta name="description" content="Lists open issues in i18n Activity github repositories." />
-<script type="text/javascript">
+<meta charset="utf-8">
+<title>排版案例索引</title>
+<meta name="description" content="本页面包含了各种文字的排版案例，尤其是来自非拉丁文字的案例。">
+
+<script>
 var f = { }
 
 // AUTHORS should fill in these assignments:
 f.directory = 'i18n-wg/repostatus/'+'/'; // the path to this file, not including /International or the file name
-f.filename = 'reviews'; // the file name WITHOUT extensions
+f.filename = 'index'; // the file name WITHOUT extensions
 f.authors = 'Richard Ishida, W3C'; // author(s) and affiliations
 f.previousauthors = ''; // as above
 f.modifiers = ''; // people making substantive changes, and their affiliation
-f.searchString = 'reviews-openissues'; // blog search string - usually the filename without extensions
-f.firstPubDate = '2106-03-16'; // date of the first publication of the document (after review)
-f.lastSubstUpdate = { date:'2106-07-15', time:'07:18'}  // date and time of latest substantive changes to this document
+f.searchString = 'type-samples'; // blog search string - usually the filename without extensions
+f.firstPubDate = '2016-03-16'; // date of the first publication of the document (after review)
+f.lastSubstUpdate = { date:'2016-07-15', time:'07:18'}  // date and time of latest substantive changes to this document
 f.status = 'notreviewed';  // should be one of draft, review, published, notreviewed or obsolete
-f.path = 'https://w3c.github.io/i18n-drafts/' // what you need to prepend to a URL to get to the /International directory 
+f.path = 'https://w3c.github.io/type-samples/' // what you need to prepend to a URL to get to the /International directory 
 
 // AUTHORS AND TRANSLATORS should fill in these assignments:
-f.thisVersion = { date:'2106-07-15', time:'07:18'} // date and time of latest edits to this document/translation
+f.thisVersion = { date:'2023-02-27', time:'07:18'} // date and time of latest edits to this document/translation
 f.contributors = ''; // people providing useful contributions or feedback during review or at other times
 // also make sure that the lang attribute on the html tag is correct!
 
 // TRANSLATORS should fill in these assignments:
-f.translators = 'xxxNAME, ORG'; // translator(s) and their affiliation - a elements allowed, but use double quotes for attributes
+f.translators = '薛富侨'; // translator(s) and their affiliation - a elements allowed, but use double quotes for attributes
 
 f.breadcrumb = 'characters';
 
 f.additionalLinks = ''
 </script>
-<script type="text/javascript" src="index-data/translations.js"> </script>
-<script type="text/javascript" src="https://w3c.github.io/i18n-drafts/javascript/doc-structure/article-dt.js"> </script>
-<script type="text/javascript" src="https://w3c.github.io/i18n-drafts/javascript/boilerplate-text/boilerplate-en.js"></script><!--TRANSLATORS must change -en to the subtag for their language!-->
-<script type="text/javascript" src="https://w3c.github.io/i18n-drafts/javascript/doc-structure/sitepage.js"> </script>
-<script type="text/javascript" src="https://w3c.github.io/i18n-drafts/javascript/articletoc-html5.js"></script>
-<!--script type="text/javascript" src="index-data/label-list.js"></script-->
-<link rel="stylesheet" href="https://w3c.github.io/i18n-drafts/style/sitepage-2016.css" type="text/css" />
-<link rel="stylesheet" href="index-data/local.css" type="text/css" />
+<script src="index-data/translations.js"> </script>
+<script src="https://w3c.github.io/i18n-drafts/javascript/doc-structure/article-dt.js"> </script>
+<script src="https://w3c.github.io/i18n-drafts/javascript/boilerplate-text/boilerplate-zh-hans.js"></script><!--TRANSLATORS must change -en to the subtag for their language!-->
+<script src="https://w3c.github.io/i18n-drafts/javascript/doc-structure/sitepage-2022.js"> </script>
+<script src="https://w3c.github.io/i18n-drafts/javascript/articletoc-2022.js"></script>
+<link rel="stylesheet" href="https://w3c.github.io/i18n-drafts/style/sitepage-2022.css" />
+<link rel="stylesheet" href="index-data/local.css" />
 <link rel="copyright" href="#copyright"/>
-<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <style>
 select { font-size: 1em; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif; border: 0; width: 100%; }
 #toclocation { display: none; }
+.sampleContainer { margin-inline-start: 7.5%; margin-inline-end: 30%; }
 </style>
 <script>
 // Note that the code is designed to pull a maximum of 200 issues - for more, change maxpages
@@ -75,26 +75,34 @@ var mediaFilter = ''
   <script>document.getElementById('mainNavigation').innerHTML = mainNavigation</script> 
 </header>
 <div class="content">
-<h1> Type samples</h1>
+<h1>排版案例</h1>
 <section id="sidebarExtras">
 <form onChange="displayRepo(getFilter())">
-  <h2 class="notoc">Select a feature</h2>
+  <h2 class="notoc">特性</h2>
   <select id="features" size="18">
   </select>
-  <h2 class="notoc">Filter by script</h2>
+  <h2 class="notoc">文种</h2>
   <select id="scripts" size="10">
   </select>
-  <h2 class="notoc">Filter by medium</h2>
+  <h2 class="notoc">媒介</h2>
   <select id="media" size="10">
   </select>
 </form>
 </section>
-<section>
-  <p>This page lists pictures in the <a href="https://github.com/w3c/type-samples">type-samples github repository</a>.  <span id="total"></span></p>
-</section>
-<section id="rawdata"><h2>How to use this</h2>
-<p style="font-size:120%; margin-top:1em;">Click on one or more labels to the right to show a list of samples. If you select multiple labels, you'll only see items with both labels. (Note: If you set all options to 'All' it may take a while to download all entries.) </p>
-<p style="font-size:120%; margin-top:1em;">When the thumbnails appear, click on an image to see the full entry.</p>
+
+
+
+<p>此页面列出了<a href="https://github.com/w3c/type-samples">type-samples GitHub仓库</a>中的图片。</p><p><span id="total"></span></p>
+
+
+<div id="content">
+
+<section id="rawdata">
+<h2>如何使用</h2>
+
+
+<p>单击右侧的一个或多个标签来显示排版案例。如果选择了多个标签，你会看到他们的同时拥有这几个标签的案例。（注意：如果将所有选项都设置为“全部”，则可能需要一段时间才能下载所有案例的图片。）</p>
+<p>当缩略图出现时，单击图片以查看完整条目。</p>
 </section>
 
 
@@ -115,16 +123,7 @@ var mediaFilter = ''
 					if (counter === 0) {
 						clearInterval(timer)
 						if (debug) console.log('finished')
-						
-						// group issues by label, adding to the labels array
-						//for (var i=0; i<issues.length; i++) {
-						//	if (issues[i].labels) {
-						//		for (var l=0;l<issues[i].labels.length;l++) {
-						//			if (labels[issues[i].labels[l].name]) labels[issues[i].labels[l].name].push(issues[i])
-						//			}
-						//		}
-						//	}
-						
+												
 						//console.log(issues)
 						showGet()
 						}
@@ -172,10 +171,6 @@ var mediaFilter = ''
 				
 				div = document.createElement('div')
 				div.className = 'sampleContainer'
-				
-				//console.log('scripts',document.getElementById('scripts').value)
-				//console.log('media', document.getElementById('media').value)
-				//console.log('features',document.getElementById('features').value)
 				
 				// display issues in order of issues array
 				var labelSet = new Set()
@@ -237,9 +232,8 @@ var mediaFilter = ''
 				
 				labelSection.appendChild(div)
 				// Add the label header to the DOM
-				//document.getElementById("rawdata").appendChild(labelSection)
 				document.getElementById("rawdata").replaceChild(labelSection, document.getElementById("rawdata").firstChild)
-				document.getElementById('total').textContent = "There are "+issues.length+" items."
+				document.getElementById('total').textContent = "共有"+issues.length+"个条目。"
 			}
 
 
@@ -253,10 +247,17 @@ function showGet () {
 		}
 	if (feature != '') { displayRepo(feature) }
 	
-	var titleList = []
+	var titleList = []  // an array holding all the issue titles
 	for (let i=0;i<issues.length;i++) {
-		if (issues[i].labels.length > 0) titleList.push(issues[i].title)
+		if (issues[i].labels.length > 0) {
+			for (let j=0;j<issues[i].labels.length;j++) {
+				// Exclude bug reports and feature requests
+				if (issues[i].labels[j].name !== 'enhancement' && issues[i].labels[j].name !== 'bug') {
+					titleList.push(issues[i].title)
+				}
+			}
 		}
+	}
 	//console.log(titleList)
 	var features = {}
 	var scripts = {}
@@ -281,7 +282,7 @@ function showGet () {
 	
 	var scriptsOut = ['<option value="" type="radio" name="filter" selected>All</option>\n']
 	for (key in scripts) {
-		scriptsOut.push('<option value="'+key+'" type="radio" name="filter">'+key+' ('+scripts[key]+')</option>\n')
+		scriptsOut.push('<option value="s:'+key+'" type="radio" name="filter">'+key+' ('+scripts[key]+')</option>\n')
 		}
 	scriptsOut.sort()
 	out = ''
@@ -291,7 +292,7 @@ function showGet () {
 
 	var mediaOut = ['<option value="" type="radio" name="filter" selected>All</option>\n']
 	for (key in media) {
-		mediaOut.push('<option value="'+key+'" type="radio" name="filter">'+key+' ('+media[key]+')</option>\n')
+		mediaOut.push('<option value="m:'+key+'" type="radio" name="filter">'+key+' ('+media[key]+')</option>\n')
 		}
 	mediaOut.sort()
 	out = ''
@@ -300,7 +301,7 @@ function showGet () {
 		
 	var featureOut = ['<option value="" type="radio" name="filter" selected>All</option>\n']
 	for (key in features) {
-		featureOut.push('<option value="'+key+'" type="radio" name="filter">'+key+' ('+features[key]+')</option>\n')
+		featureOut.push('<option value="i:'+key+'" type="radio" name="filter">'+key+' ('+features[key]+')</option>\n')
 		}
 	featureOut.sort()
 	out = ''
@@ -310,9 +311,10 @@ function showGet () {
 </script>
 
 <footer id="thefooter"></footer>
-<script type="text/javascript">document.getElementById('thefooter').innerHTML = g.bottomOfPage</script> 
-<script type="text/javascript">completePage()</script>
+<script>document.getElementById('thefooter').innerHTML = g.bottomOfPage</script> 
+<script>completePage()</script>
 
+</div>
 </div>
 </body>
 </html>
