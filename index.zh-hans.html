@@ -18,7 +18,7 @@ f.searchString = 'type-samples'; // blog search string - usually the filename wi
 f.firstPubDate = '2016-03-16'; // date of the first publication of the document (after review)
 f.lastSubstUpdate = { date:'2016-07-15', time:'07:18'}  // date and time of latest substantive changes to this document
 f.status = 'notreviewed';  // should be one of draft, review, published, notreviewed or obsolete
-f.path = 'https://w3c.github.io/type-samples/' // what you need to prepend to a URL to get to the /International directory 
+f.path = 'https://w3c.github.io/type-samples/' // what you need to prepend to a URL to get to the /International directory
 
 // AUTHORS AND TRANSLATORS should fill in these assignments:
 f.thisVersion = { date:'2023-02-27', time:'07:18'} // date and time of latest edits to this document/translation
@@ -51,7 +51,7 @@ select { font-size: 1em; font-family: Gotham, "Helvetica Neue", Helvetica, Arial
 // this means that if a new label is added, this code needs to be changed
 // we could probably fix this by ignoring pending, close and track labels and constituting the list of labels as needed
 // but we'd have to be careful to ignore other labels that are added other than spec labels
- 
+
 
 
 // Define the repository owner
@@ -72,7 +72,7 @@ var mediaFilter = ''
 <body onload="getAllData()">
 <header>
   <nav id="mainNavigation"></nav>
-  <script>document.getElementById('mainNavigation').innerHTML = mainNavigation</script> 
+  <script>document.getElementById('mainNavigation').innerHTML = mainNavigation</script>
 </header>
 <div class="content">
 <h1>排版案例</h1>
@@ -109,21 +109,21 @@ var mediaFilter = ''
 <script>
 			var totals=0
 			var counter=maxpages
-		
+
 
 			function getFilter () {
 				window.scriptFilter = document.getElementById('scripts').value
 				window.mediaFilter = document.getElementById('media').value
 				return document.getElementById('features').value
 				}
-						
+
 			function getAllData () {
 				for (var p=1;p<maxpages+1;p++) fetchIssues(p)
 				var timer = setInterval(function() {
 					if (counter === 0) {
 						clearInterval(timer)
 						if (debug) console.log('finished')
-												
+
 						//console.log(issues)
 						showGet()
 						}
@@ -131,7 +131,7 @@ var mediaFilter = ''
 					}, 50)
 				}
 
-	
+
 			// Grab and present the issue list from GitHub
 			function fetchIssues(page) {
 				var request = new XMLHttpRequest();
@@ -147,19 +147,19 @@ var mediaFilter = ''
 					}
 				request.send();
 				}
-				
-			
 
 
 
 
-					
+
+
+
 			// Display repository information
 			function displayRepo(label) {
 				// Add a container to put the repository info and issues in
 				var table, tr, td, a, updated, toc, span
 				var labelSection = document.createElement('section');
-				
+
 				// Add a heading
 				var labelLink = document.createElement('a');
 				labelLink.setAttribute('href', '#'+label);
@@ -168,10 +168,10 @@ var mediaFilter = ''
 				labelHeader.id = label
 				labelHeader.appendChild(labelLink);
 				labelSection.appendChild(labelHeader);
-				
+
 				div = document.createElement('div')
 				div.className = 'sampleContainer'
-				
+
 				// display issues in order of issues array
 				var labelSet = new Set()
 				for (let i=0;i<issues.length;i++) {
@@ -181,18 +181,18 @@ var mediaFilter = ''
 					for (let j=0;j<issues[i]['labels'].length;j++) labelSet.add(issues[i]['labels'][j].name)
 					//console.log(labelSet)
 					if (labelSet.size == 0) continue
-					
+
 					// abort if the selected filters are not found
 					if (label && ! labelSet.has(label)) continue
 					if (window.scriptFilter && ! labelSet.has(window.scriptFilter)) continue
 					if (window.mediaFilter && ! labelSet.has(window.mediaFilter)) continue
-					
+
 					// get the image url
 					var url = issues[i]['body'].match(/https:\/\/[^\.]+\.githubusercontent.com\/([^\)]+)/)
 					if (url) {
 						fig = document.createElement('div')
 						fig.className = 'fig'
-						
+
 						a = document.createElement('a')
 						a.href = issues[i]['html_url']
 						a.target = '_blank'
@@ -202,9 +202,9 @@ var mediaFilter = ''
 						img.alt = img.title
 						img.className = 'sample'
 						a.appendChild(img)
-						
+
 						fig.appendChild(a)
-						
+
 						// get descriptions
 						//console.log(/tag: [^$]+/)
 						var desc = issues[i]['body'].match(/tag: [^\n]+/g)
@@ -225,11 +225,11 @@ var mediaFilter = ''
 							descList.appendChild(figcap)
 							fig.appendChild(descList)
 							}
-						
+
 						div.appendChild(fig)
 						}
 					}
-				
+
 				labelSection.appendChild(div)
 				// Add the label header to the DOM
 				document.getElementById("rawdata").replaceChild(labelSection, document.getElementById("rawdata").firstChild)
@@ -241,12 +241,12 @@ function showGet () {
 	var feature = ''
 	var parameters = location.search.split('&')
 	parameters[0] = parameters[0].substring(1)
-	for (var p=0;p<parameters.length;p++) {  
+	for (var p=0;p<parameters.length;p++) {
 		var pairs = parameters[p].split('=')
 		if (pairs[0] == 'feature') { feature = pairs[1] }
 		}
 	if (feature != '') { displayRepo(feature) }
-	
+
 	var titleList = []  // an array holding all the issue titles
 	for (let i=0;i<issues.length;i++) {
 		if (issues[i].labels.length > 0) {
@@ -279,8 +279,8 @@ function showGet () {
 	//console.log('features',features)
 	//console.log('scripts',scripts)
 	//console.log('media',media)
-	
-	var scriptsOut = ['<option value="" type="radio" name="filter" selected>All</option>\n']
+
+	var scriptsOut = ['<option value="" type="radio" name="filter" selected>全部</option>\n']
 	for (key in scripts) {
 		scriptsOut.push('<option value="s:'+key+'" type="radio" name="filter">'+key+' ('+scripts[key]+')</option>\n')
 		}
@@ -290,7 +290,7 @@ function showGet () {
 	document.getElementById('scripts').innerHTML = out
 	//console.log(out)
 
-	var mediaOut = ['<option value="" type="radio" name="filter" selected>All</option>\n']
+	var mediaOut = ['<option value="" type="radio" name="filter" selected>全部</option>\n']
 	for (key in media) {
 		mediaOut.push('<option value="m:'+key+'" type="radio" name="filter">'+key+' ('+media[key]+')</option>\n')
 		}
@@ -298,8 +298,8 @@ function showGet () {
 	out = ''
 	for (let i=0;i<mediaOut.length;i++) out += mediaOut[i]
 	document.getElementById('media').innerHTML = out
-		
-	var featureOut = ['<option value="" type="radio" name="filter" selected>All</option>\n']
+
+	var featureOut = ['<option value="" type="radio" name="filter" selected>全部</option>\n']
 	for (key in features) {
 		featureOut.push('<option value="i:'+key+'" type="radio" name="filter">'+key+' ('+features[key]+')</option>\n')
 		}
@@ -311,7 +311,7 @@ function showGet () {
 </script>
 
 <footer id="thefooter"></footer>
-<script>document.getElementById('thefooter').innerHTML = g.bottomOfPage</script> 
+<script>document.getElementById('thefooter').innerHTML = g.bottomOfPage</script>
 <script>completePage()</script>
 
 </div>
