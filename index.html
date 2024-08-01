@@ -37,276 +37,141 @@ f.additionalLinks = ''
 <script src="https://w3c.github.io/i18n-drafts/javascript/doc-structure/sitepage-2022.js"> </script>
 <script src="https://w3c.github.io/i18n-drafts/javascript/articletoc-2022.js"></script>
 <link rel="stylesheet" href="https://w3c.github.io/i18n-drafts/style/sitepage-2022.css" />
-<link rel="stylesheet" href="index-data/local.css" />
-<link rel="copyright" href="#copyright"/>
+<link rel="stylesheet" href="index-data/local.css">
+<link rel="copyright" href="#copyright">
 <style>
 select { font-size: 1em; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif; border: 0; width: 100%; }
 #toclocation { display: none; }
 .sampleContainer { margin-inline-start: 7.5%; margin-inline-end: 30%; }
+#go button { font-size: 2em; }
+#selectors select { font-size:200%; border-radius: .3em; margin-block-end: 1em; }
 </style>
-<script>
-// Note that the code is designed to pull a maximum of 200 issues - for more, change maxpages
-// It will only display issues with labels that correspond to those defined in the labels variable
-// this means that if a new label is added, this code needs to be changed
-// we could probably fix this by ignoring pending, close and track labels and constituting the list of labels as needed
-// but we'd have to be careful to ignore other labels that are added other than spec labels
- 
-
-
-// Define the repository owner
-var owner = 'w3c';
-
-//var labelsKeys = Object.keys(labels)
-//var labelsLength = labelsKeys.length
-var debug = false
-
-var issues = []
-var maxpages = 2
-var scriptFilter = ''
-var mediaFilter = ''
-
-</script>
 </head>
 
-<body onload="getAllData()">
+<body>
 <header>
   <nav id="mainNavigation"></nav>
   <script>document.getElementById('mainNavigation').innerHTML = mainNavigation</script> 
 </header>
 <div class="content">
 <h1>Type samples</h1>
-<section id="sidebarExtras">
-<form onChange="displayRepo(getFilter())">
-  <h2 class="notoc">Select a feature</h2>
-  <select id="features" size="18">
-  </select>
-  <h2 class="notoc">Filter by script</h2>
-  <select id="scripts" size="10">
-  </select>
-  <h2 class="notoc">Filter by medium</h2>
-  <select id="media" size="10">
-  </select>
-</form>
-</section>
 
 
+<p>This page allows you to find items in the <a href="https://github.com/w3c/type-samples/issues">type-samples github repository</a> by applying filters.</p>
 
-<p>This page lists pictures in the <a href="https://github.com/w3c/type-samples">type-samples github repository</a>.  <span id="total"></span></p>
 
 
 <div id="content">
 
-<section id="rawdata">
-<h2>How to use this</h2>
-
-<p>Click on one or more labels to the right to show a list of samples. If you select multiple labels, you'll only see items with both labels. (Note: If you set all options to 'All' it may take a while to download all entries.) </p>
-<p>When the thumbnails appear, click on an image to see the full entry.</p>
-</section>
+<div id="selectors">
+<p>Select the relevant labels then select <samp>GO</samp>.</p>
 
 
-<script>
-			var totals=0
-			var counter=maxpages
-		
+<p><strong>Filter by topic</strong>
+<select id="topics">
+<option value="">All topics</option>
 
-			function getFilter () {
-				window.scriptFilter = document.getElementById('scripts').value
-				window.mediaFilter = document.getElementById('media').value
-				return document.getElementById('features').value
-				}
-						
-			function getAllData () {
-				for (var p=1;p<maxpages+1;p++) fetchIssues(p)
-				var timer = setInterval(function() {
-					if (counter === 0) {
-						clearInterval(timer)
-						if (debug) console.log('finished')
-												
-						//console.log(issues)
-						showGet()
-						}
-					else if (debug) console.log('counter', counter)
-					}, 50)
-				}
+<optgroup label="Text direction">
+<option value="vertical_text">Vertical text</option>
+<option value="bidi_text">Bidirectional text</option>
+</optgroup>
 
-	
-			// Grab and present the issue list from GitHub
-			function fetchIssues(page) {
-				var request = new XMLHttpRequest();
-				request.open('get','https://api.github.com/repos/w3c/type-samples/issues?per_page=100&page='+page)
-				request.onload = function () {
-						var temp = JSON.parse(request.responseText)
-						for (var i=0;i<temp.length;i++) {
-							issues.push(temp[i])
-							}
-					totals += issues.length;
-					if (debug) console.log('issue lgth',issues.length,'totals',totals,'page',page, 'counter',counter)
-					counter--
-					}
-				request.send();
-				}
-				
-			
+<optgroup label="Glyph shaping & positioning">
+<option value="fonts">Fonts &amp; font styles</option>
+<option value="glyphs">Context-based shaping &amp; positioning</option>
+<option value="cursive">Cursive text</option>
+<option value="letterforms">Letterform slopes, weights, &amp; italics</option>
+<option value="transforms">Case &amp; other transforms</option>
+</optgroup>
 
+<optgroup label="Typographic units">
+<option value="encoding">Characters &amp; encoding</option>
+<option value="segmentation">Grapheme/word segmentation &amp; selection</option>
+</optgroup>
 
+<optgroup label="Punctuation & other inline features">
+<option value="punctuation_etc">Phrase &amp; section boundaries</option>
+<option value="quotations">Quotations &amp; citations</option>
+<option value="emphasis">Emphasis &amp; highlighting</option>
+<option value="abbrev">Abbreviation, ellipsis, &amp; repetition</option>
+<option value="inline_notes">Inline notes &amp; annotations</option>
+<option value="text_decoration">Text decoration &amp; other inline features</option>
+<option value="data_formats">Data formats &amp; numbers</option>
+</optgroup>
 
+<optgroup label="Line & paragraph layout">
+<option value="line_breaking">Line breaking &amp; hyphenation</option>
+<option value="justification">Text alignment &amp; justification</option>
+<option value="spacing">Text spacing</option>
+<option value="baselines">Baselines, line height, etc.</option>
+<option value="lists">Lists, counters, etc.</option>
+<option value="initials">Styling initials</option>
+</optgroup>
 
-					
-			// Display repository information
-			function displayRepo(label) {
-				// Add a container to put the repository info and issues in
-				var table, tr, td, a, updated, toc, span
-				var labelSection = document.createElement('section');
-				
-				// Add a heading
-				var labelLink = document.createElement('a');
-				labelLink.setAttribute('href', '#'+label);
-				labelLink.innerHTML = label;
-				var labelHeader = document.createElement('h2')
-				labelHeader.id = label
-				labelHeader.appendChild(labelLink);
-				labelSection.appendChild(labelHeader);
-				
-				div = document.createElement('div')
-				div.className = 'sampleContainer'
-				
-				// display issues in order of issues array
-				var labelSet = new Set()
-				for (let i=0;i<issues.length;i++) {
-
-					// get a list of labels for this item
-					labelSet.clear()
-					for (let j=0;j<issues[i]['labels'].length;j++) labelSet.add(issues[i]['labels'][j].name)
-					//console.log(labelSet)
-					if (labelSet.size == 0) continue
-					
-					// abort if the selected filters are not found
-					if (label && ! labelSet.has(label)) continue
-					if (window.scriptFilter && ! labelSet.has(window.scriptFilter)) continue
-					if (window.mediaFilter && ! labelSet.has(window.mediaFilter)) continue
-					
-					// get the image url
-					var url = issues[i]['body'].match(/https:\/\/[^\.]+\.githubusercontent.com\/([^\)]+)/)
-					if (url) {
-						fig = document.createElement('div')
-						fig.className = 'fig'
-						
-						a = document.createElement('a')
-						a.href = issues[i]['html_url']
-						a.target = '_blank'
-						img = document.createElement('img')
-						img.src = url[0]
-						img.title = issues[i]['title']+' ('+issues[i]['number']+')'
-						img.alt = img.title
-						img.className = 'sample'
-						a.appendChild(img)
-						
-						fig.appendChild(a)
-						
-						// get descriptions
-						//console.log(/tag: [^$]+/)
-						var desc = issues[i]['body'].match(/tag: [^\n]+/g)
-						if (desc) {
-							descList = document.createElement('div')
-							descList.className = 'descList'
-							p = document.createElement('p')
-							p.className = 'sampleSummary'
-							p.appendChild(document.createTextNode(issues[i]['title']))
-							descList.appendChild(p)
-							figcap = document.createElement('p')
-							figcap.appendChild(document.createTextNode(desc[0].replace(/tag:[\s]+/,'').replace(' ',' \u00A0\u00A0\u00A0 ')))
-							for (k=1;k<desc.length;k++) {
-								p = document.createElement('p')
-								p.appendChild(document.createTextNode(desc[k].replace(/tag:[\s]+/,'').replace(' ',' \u00A0\u00A0\u00A0 ')))
-								descList.appendChild(p)
-								}
-							descList.appendChild(figcap)
-							fig.appendChild(descList)
-							}
-						
-						div.appendChild(fig)
-						}
-					}
-				
-				labelSection.appendChild(div)
-				// Add the label header to the DOM
-				document.getElementById("rawdata").replaceChild(labelSection, document.getElementById("rawdata").firstChild)
-				document.getElementById('total').textContent = "There are "+issues.length+" items."
-			}
+<optgroup label="Page & book layout">
+<option value="line_breaking">General page layout &amp; progression</option>
+<option value="grids_tables">Grids &amp; tables</option>
+<option value="footnotes_etc">Footnotes, endnotes, etc.</option>
+<option value="headers_footers">Page headers, footers, etc.</option>
+<option value="interaction">Forms &amp; user interaction</option>
+</optgroup>
+</select>
+</p>
 
 
-function showGet () {
-	var feature = ''
-	var parameters = location.search.split('&')
-	parameters[0] = parameters[0].substring(1)
-	for (var p=0;p<parameters.length;p++) {  
-		var pairs = parameters[p].split('=')
-		if (pairs[0] == 'feature') { feature = pairs[1] }
-		}
-	if (feature != '') { displayRepo(feature) }
-	
-	var titleList = []  // an array holding all the issue titles
-	for (let i=0;i<issues.length;i++) {
-		if (issues[i].labels.length > 0) {
-			for (let j=0;j<issues[i].labels.length;j++) {
-				// Exclude bug reports and feature requests
-				if (issues[i].labels[j].name !== 'enhancement' && issues[i].labels[j].name !== 'bug') {
-					titleList.push(issues[i].title)
-				}
-			}
-		}
-	}
-	//console.log(titleList)
-	var features = {}
-	var scripts = {}
-	var media = {}
-	for (let i=0;i<titleList.length;i++) {
-		var temp = titleList[i].split(/\s+/)
-		if (temp.length > 3) {
-			for (let j=3;j<temp.length;j++) {
-				if (features[temp[j]]) features[temp[j]]++
-				else features[temp[j]] = 1
-				}
-			if (scripts[temp[0]]) scripts[temp[0]]++
-			else scripts[temp[0]] = 1
-			if (media[temp[2]]) media[temp[2]]++
-			else media[temp[2]] = 1
-			}
-		//console.log(temp)
-		}
-	//console.log('features',features)
-	//console.log('scripts',scripts)
-	//console.log('media',media)
-	
-	var scriptsOut = ['<option value="" type="radio" name="filter" selected>All</option>\n']
-	for (key in scripts) {
-		scriptsOut.push('<option value="s:'+key+'" type="radio" name="filter">'+key+' ('+scripts[key]+')</option>\n')
-		}
-	scriptsOut.sort()
-	out = ''
-	for (let i=0;i<scriptsOut.length;i++) out += scriptsOut[i]
-	document.getElementById('scripts').innerHTML = out
-	//console.log(out)
 
-	var mediaOut = ['<option value="" type="radio" name="filter" selected>All</option>\n']
-	for (key in media) {
-		mediaOut.push('<option value="m:'+key+'" type="radio" name="filter">'+key+' ('+media[key]+')</option>\n')
-		}
-	mediaOut.sort()
-	out = ''
-	for (let i=0;i<mediaOut.length;i++) out += mediaOut[i]
-	document.getElementById('media').innerHTML = out
-		
-	var featureOut = ['<option value="" type="radio" name="filter" selected>All</option>\n']
-	for (key in features) {
-		featureOut.push('<option value="i:'+key+'" type="radio" name="filter">'+key+' ('+features[key]+')</option>\n')
-		}
-	featureOut.sort()
-	out = ''
-	for (let i=0;i<featureOut.length;i++) out += featureOut[i]
-	document.getElementById('features').innerHTML = out
-	}
-</script>
+
+
+
+<p><strong>Filter by script</strong>
+<select id="script">
+<option value="">All scripts</option>
+
+<option value="adlm">Adlam</option>
+<option value="arab">Arabic</option>
+<option value="bopo">Bopomofo</option>
+<option value="cans">Canadian Aboriginal Syllabics</option>
+<option value="cyrl">Cyrillic</option>
+<option value="deva">Devanagari</option>
+<option value="ethi">Ethiopic</option>
+<option value="grek">Greek</option>
+<option value="hani">Chinese</option>
+<option value="hebr">Hebrew</option>
+<option value="jpan">Japanese</option>
+<option value="java">Javanese</option>
+<option value="khmr">Khmer</option>
+<option value="kore">Korean</option>
+<option value="laoo">Lao</option>
+<option value="latn">Latn</option>
+<option value="mlym">Malayalam</option>
+<option value="mong">Mongolian</option>
+<option value="nkoo">N'Ko</option>
+<option value="taml">Tamil</option>
+<option value="thai">Thai</option>
+<option value="tibt">Tibetan</option>
+<!--
+<option value=""></option>
+<option value=""></option>
+<option value=""></option>
+<option value=""></option>
+<option value=""></option>
+-->
+</select>
+</p>
+
+
+
+<p id="go"><button onClick="
+    script = '';
+    topic = '';
+    if (document.getElementById('script').value !== '') script='+label%3As%3A'+document.getElementById('script').value;
+    if (document.getElementById('topics').value !== '') topic='+label%3Ai%3A'+document.getElementById('topics').value;
+    url = `https://github.com/w3c/type-samples/issues?q=is%3Aissue+is%3Aopen${ topic }${ script }`;
+    resultwindow = window.open(url, 'resultwindow'); resultwindow.focus()">GO</button></p>
+</div>
+
+
+
 
 <footer id="thefooter"></footer>
 <script>document.getElementById('thefooter').innerHTML = g.bottomOfPage</script> 
