@@ -21,7 +21,7 @@ f.status = 'notreviewed';  // should be one of draft, review, published, notrevi
 f.path = 'https://w3c.github.io/type-samples/' // what you need to prepend to a URL to get to the /International directory
 
 // AUTHORS AND TRANSLATORS should fill in these assignments:
-f.thisVersion = { date:'2023-02-27', time:'07:18'} // date and time of latest edits to this document/translation
+f.thisVersion = { date:'2024-08-06', time:'07:18'} // date and time of latest edits to this document/translation
 f.contributors = ''; // people providing useful contributions or feedback during review or at other times
 // also make sure that the lang attribute on the html tag is correct!
 
@@ -38,280 +38,145 @@ f.additionalLinks = ''
 <script src="https://w3c.github.io/i18n-drafts/javascript/doc-structure/sitepage-2022.js"> </script>
 <script src="https://w3c.github.io/i18n-drafts/javascript/articletoc-2022.js"></script>
 <link rel="stylesheet" href="https://w3c.github.io/i18n-drafts/style/sitepage-2022.css" />
-<link rel="stylesheet" href="index-data/local.css" />
-<link rel="copyright" href="#copyright"/>
+<link rel="stylesheet" href="index-data/local.css">
+<link rel="copyright" href="#copyright">
 <style>
 select { font-size: 1em; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif; border: 0; width: 100%; }
 #toclocation { display: none; }
 .sampleContainer { margin-inline-start: 7.5%; margin-inline-end: 30%; }
+#go button { font-size: 2em; }
+#selectors select { font-size:200%; border-radius: .3em; margin-block-end: 1em; }
 </style>
-<script>
-// Note that the code is designed to pull a maximum of 200 issues - for more, change maxpages
-// It will only display issues with labels that correspond to those defined in the labels variable
-// this means that if a new label is added, this code needs to be changed
-// we could probably fix this by ignoring pending, close and track labels and constituting the list of labels as needed
-// but we'd have to be careful to ignore other labels that are added other than spec labels
-
-
-
-// Define the repository owner
-var owner = 'w3c';
-
-//var labelsKeys = Object.keys(labels)
-//var labelsLength = labelsKeys.length
-var debug = false
-
-var issues = []
-var maxpages = 2
-var scriptFilter = ''
-var mediaFilter = ''
-
-</script>
 </head>
 
-<body onload="getAllData()">
+<body>
 <header>
   <nav id="mainNavigation"></nav>
-  <script>document.getElementById('mainNavigation').innerHTML = mainNavigation</script>
+  <script>document.getElementById('mainNavigation').innerHTML = mainNavigation</script> 
 </header>
 <div class="content">
 <h1>排版案例</h1>
-<section id="sidebarExtras">
-<form onChange="displayRepo(getFilter())">
-  <h2 class="notoc">特性</h2>
-  <select id="features" size="18">
-  </select>
-  <h2 class="notoc">文种</h2>
-  <select id="scripts" size="10">
-  </select>
-  <h2 class="notoc">媒介</h2>
-  <select id="media" size="10">
-  </select>
-</form>
-</section>
 
 
+<p>你可以通过过滤器来查找<a href="https://github.com/w3c/type-samples/issues">type-samples GitHub仓库</a>中的项目。</p>
 
-<p>此页面列出了<a href="https://github.com/w3c/type-samples">type-samples GitHub仓库</a>中的图片。</p><p><span id="total"></span></p>
+
 
 
 <div id="content">
 
-<section id="rawdata">
-<h2>如何使用</h2>
+<div id="selectors">
+<p>选择相关的标签，然后点击 <samp>GO</samp>。</p>
 
 
-<p>单击右侧的一个或多个标签来显示排版案例。如果选择了多个标签，你会看到他们的同时拥有这几个标签的案例。（注意：如果将所有选项都设置为“全部”，则可能需要一段时间才能下载所有案例的图片。）</p>
-<p>当缩略图出现时，单击图片以查看完整条目。</p>
-</section>
+<p><strong>按主题过滤</strong>
+<select id="topics">
+<option value="">所有主题</option>
+
+<optgroup label="书写方向">
+<option value="vertical_text">直排</option>
+<option value="bidi_text">双向文本</option>
+</optgroup>
+
+<optgroup label="字形选择、排列和定位">
+<option value="fonts">字体和字体样式</option>
+<option value="glyphs">基于上下文的字形选择、排列和定位</option>
+<option value="cursive">连写文字</option>
+<option value="letterforms">斜体和字重</option>
+<option value="transforms">大小写及其他变换</option>
+</optgroup>
+
+<optgroup label="排版单位">
+<option value="encoding">字符和编码</option>
+<option value="segmentation">字位和单词分割与选择</option>
+</optgroup>
+
+<optgroup label="标点符号和其他行内特性">
+<option value="punctuation_etc">短语和章节边界</option>
+<option value="quotations">引文</option>
+<option value="emphasis">强调和突出显示</option>
+<option value="abbrev">缩写、省略和重复</option>
+<option value="inline_notes">注释</option>
+<option value="text_decoration">文本装饰和其他行内特性</option>
+<option value="data_formats">数据格式和数字</option>
+</optgroup>
+
+<optgroup label="行和段落布局">
+<option value="line_breaking">换行和连字符</option>
+<option value="justification">文本对齐</option>
+<option value="spacing">字间空白</option>
+<option value="baselines">基线、行高等</option>
+<option value="lists">列表、计数器等</option>
+<option value="initials">首字样式</option>
+</optgroup>
+
+<optgroup label="页面和书籍布局">
+<option value="line_breaking">页面布局和配置、装订方向</option>
+<option value="grids_tables">网格和表格</option>
+<option value="footnotes_etc">脚注、尾注等</option>
+<option value="headers_footers">页眉、页脚等</option>
+<option value="interaction">表单和用户交互</option>
+</optgroup>
+</select>
+</p>
 
 
-<script>
-			var totals=0
-			var counter=maxpages
-
-
-			function getFilter () {
-				window.scriptFilter = document.getElementById('scripts').value
-				window.mediaFilter = document.getElementById('media').value
-				return document.getElementById('features').value
-				}
-
-			function getAllData () {
-				for (var p=1;p<maxpages+1;p++) fetchIssues(p)
-				var timer = setInterval(function() {
-					if (counter === 0) {
-						clearInterval(timer)
-						if (debug) console.log('finished')
-
-						//console.log(issues)
-						showGet()
-						}
-					else if (debug) console.log('counter', counter)
-					}, 50)
-				}
-
-
-			// Grab and present the issue list from GitHub
-			function fetchIssues(page) {
-				var request = new XMLHttpRequest();
-				request.open('get','https://api.github.com/repos/w3c/type-samples/issues?per_page=100&page='+page)
-				request.onload = function () {
-						var temp = JSON.parse(request.responseText)
-						for (var i=0;i<temp.length;i++) {
-							issues.push(temp[i])
-							}
-					totals += issues.length;
-					if (debug) console.log('issue lgth',issues.length,'totals',totals,'page',page, 'counter',counter)
-					counter--
-					}
-				request.send();
-				}
 
 
 
 
+<p><strong>按文种过滤</strong>
+<select id="script">
+<option value="">所有文种</option>
+
+<option value="adlm">阿德拉姆字母</option>
+<option value="arab">阿拉伯字母</option>
+<option value="bopo">注音符号</option>
+<option value="cans">加拿大原住民音节文字</option>
+<option value="cyrl">西里尔字母</option>
+<option value="deva">天城文</option>
+<option value="ethi">吉兹字母</option>
+<option value="grek">希腊字母</option>
+<option value="hani">中文</option>
+<option value="hebr">希伯来字母</option>
+<option value="jpan">日文</option>
+<option value="java">爪哇字母</option>
+<option value="khmr">高棉文</option>
+<option value="kore">朝鲜语/韩国语</option>
+<option value="laoo">老挝文</option>
+<option value="latn">拉丁字母</option>
+<option value="mlym">马拉雅拉姆文</option>
+<option value="mong">蒙文</option>
+<option value="nkoo">西非书面字母</option>
+<option value="taml">泰米尔文</option>
+<option value="thai">泰文</option>
+<option value="tibt">藏文</option>
+<!--
+<option value=""></option>
+<option value=""></option>
+<option value=""></option>
+<option value=""></option>
+<option value=""></option>
+-->
+</select>
+</p>
 
 
 
-			// Display repository information
-			function displayRepo(label) {
-				// Add a container to put the repository info and issues in
-				var table, tr, td, a, updated, toc, span
-				var labelSection = document.createElement('section');
-
-				// Add a heading
-				var labelLink = document.createElement('a');
-				labelLink.setAttribute('href', '#'+label);
-				labelLink.innerHTML = label;
-				var labelHeader = document.createElement('h2')
-				labelHeader.id = label
-				labelHeader.appendChild(labelLink);
-				labelSection.appendChild(labelHeader);
-
-				div = document.createElement('div')
-				div.className = 'sampleContainer'
-
-				// display issues in order of issues array
-				var labelSet = new Set()
-				for (let i=0;i<issues.length;i++) {
-
-					// get a list of labels for this item
-					labelSet.clear()
-					for (let j=0;j<issues[i]['labels'].length;j++) labelSet.add(issues[i]['labels'][j].name)
-					//console.log(labelSet)
-					if (labelSet.size == 0) continue
-
-					// abort if the selected filters are not found
-					if (label && ! labelSet.has(label)) continue
-					if (window.scriptFilter && ! labelSet.has(window.scriptFilter)) continue
-					if (window.mediaFilter && ! labelSet.has(window.mediaFilter)) continue
-
-					// get the image url
-					var url = issues[i]['body'].match(/https:\/\/[^\.]+\.githubusercontent.com\/([^\)]+)/)
-					if (url) {
-						fig = document.createElement('div')
-						fig.className = 'fig'
-
-						a = document.createElement('a')
-						a.href = issues[i]['html_url']
-						a.target = '_blank'
-						img = document.createElement('img')
-						img.src = url[0]
-						img.title = issues[i]['title']+' ('+issues[i]['number']+')'
-						img.alt = img.title
-						img.className = 'sample'
-						a.appendChild(img)
-
-						fig.appendChild(a)
-
-						// get descriptions
-						//console.log(/tag: [^$]+/)
-						var desc = issues[i]['body'].match(/tag: [^\n]+/g)
-						if (desc) {
-							descList = document.createElement('div')
-							descList.className = 'descList'
-							p = document.createElement('p')
-							p.className = 'sampleSummary'
-							p.appendChild(document.createTextNode(issues[i]['title']))
-							descList.appendChild(p)
-							figcap = document.createElement('p')
-							figcap.appendChild(document.createTextNode(desc[0].replace(/tag:[\s]+/,'').replace(' ',' \u00A0\u00A0\u00A0 ')))
-							for (k=1;k<desc.length;k++) {
-								p = document.createElement('p')
-								p.appendChild(document.createTextNode(desc[k].replace(/tag:[\s]+/,'').replace(' ',' \u00A0\u00A0\u00A0 ')))
-								descList.appendChild(p)
-								}
-							descList.appendChild(figcap)
-							fig.appendChild(descList)
-							}
-
-						div.appendChild(fig)
-						}
-					}
-
-				labelSection.appendChild(div)
-				// Add the label header to the DOM
-				document.getElementById("rawdata").replaceChild(labelSection, document.getElementById("rawdata").firstChild)
-				document.getElementById('total').textContent = "共有"+issues.length+"个条目。"
-			}
+<p id="go"><button onClick="
+    script = '';
+    topic = '';
+    if (document.getElementById('script').value !== '') script='+label%3As%3A'+document.getElementById('script').value;
+    if (document.getElementById('topics').value !== '') topic='+label%3Ai%3A'+document.getElementById('topics').value;
+    url = `https://github.com/w3c/type-samples/issues?q=is%3Aissue+is%3Aopen${ topic }${ script }`;
+    resultwindow = window.open(url, 'resultwindow'); resultwindow.focus()">GO</button></p>
+</div>
 
 
-function showGet () {
-	var feature = ''
-	var parameters = location.search.split('&')
-	parameters[0] = parameters[0].substring(1)
-	for (var p=0;p<parameters.length;p++) {
-		var pairs = parameters[p].split('=')
-		if (pairs[0] == 'feature') { feature = pairs[1] }
-		}
-	if (feature != '') { displayRepo(feature) }
 
-	var titleList = []  // an array holding all the issue titles
-	for (let i=0;i<issues.length;i++) {
-		if (issues[i].labels.length > 0) {
-			for (let j=0;j<issues[i].labels.length;j++) {
-				// Exclude bug reports and feature requests
-				if (issues[i].labels[j].name !== 'enhancement' && issues[i].labels[j].name !== 'bug') {
-					titleList.push(issues[i].title)
-				}
-			}
-		}
-	}
-	//console.log(titleList)
-	var features = {}
-	var scripts = {}
-	var media = {}
-	for (let i=0;i<titleList.length;i++) {
-		var temp = titleList[i].split(/\s+/)
-		if (temp.length > 3) {
-			for (let j=3;j<temp.length;j++) {
-				if (features[temp[j]]) features[temp[j]]++
-				else features[temp[j]] = 1
-				}
-			if (scripts[temp[0]]) scripts[temp[0]]++
-			else scripts[temp[0]] = 1
-			if (media[temp[2]]) media[temp[2]]++
-			else media[temp[2]] = 1
-			}
-		//console.log(temp)
-		}
-	//console.log('features',features)
-	//console.log('scripts',scripts)
-	//console.log('media',media)
-
-	var scriptsOut = ['<option value="" type="radio" name="filter" selected>全部</option>\n']
-	for (key in scripts) {
-		scriptsOut.push('<option value="s:'+key+'" type="radio" name="filter">'+key+' ('+scripts[key]+')</option>\n')
-		}
-	scriptsOut.sort()
-	out = ''
-	for (let i=0;i<scriptsOut.length;i++) out += scriptsOut[i]
-	document.getElementById('scripts').innerHTML = out
-	//console.log(out)
-
-	var mediaOut = ['<option value="" type="radio" name="filter" selected>全部</option>\n']
-	for (key in media) {
-		mediaOut.push('<option value="m:'+key+'" type="radio" name="filter">'+key+' ('+media[key]+')</option>\n')
-		}
-	mediaOut.sort()
-	out = ''
-	for (let i=0;i<mediaOut.length;i++) out += mediaOut[i]
-	document.getElementById('media').innerHTML = out
-
-	var featureOut = ['<option value="" type="radio" name="filter" selected>全部</option>\n']
-	for (key in features) {
-		featureOut.push('<option value="i:'+key+'" type="radio" name="filter">'+key+' ('+features[key]+')</option>\n')
-		}
-	featureOut.sort()
-	out = ''
-	for (let i=0;i<featureOut.length;i++) out += featureOut[i]
-	document.getElementById('features').innerHTML = out
-	}
-</script>
 
 <footer id="thefooter"></footer>
-<script>document.getElementById('thefooter').innerHTML = g.bottomOfPage</script>
+<script>document.getElementById('thefooter').innerHTML = g.bottomOfPage</script> 
 <script>completePage()</script>
 
 </div>
