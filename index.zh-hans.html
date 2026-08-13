@@ -33,6 +33,7 @@ f.breadcrumb = 'characters';
 f.additionalLinks = ''
 </script>
 <script src="index-data/translations.js"> </script>
+<script src="index-data/filter-options.js"> </script>
 <script src="https://w3c.github.io/i18n-drafts/javascript/doc-structure/article-dt.js"> </script>
 <script src="https://w3c.github.io/i18n-drafts/javascript/boilerplate-text/boilerplate-zh-hans.js"></script><!--TRANSLATORS must change -en to the subtag for their language!-->
 <script src="https://w3c.github.io/i18n-drafts/javascript/doc-structure/sitepage-2022.js"> </script>
@@ -68,52 +69,6 @@ f.additionalLinks = ''
 
 <p><strong>按主题过滤</strong>
 <select id="topics">
-<option value="">所有主题</option>
-
-<optgroup label="文本方向">
-<option value="writing_mode">行文模式</option>
-<option value="bidi_text">双向文本</option>
-</optgroup>
-
-<optgroup label="字形的变形与定位">
-<option value="fonts">字型与字型样式</option>
-<option value="glyphs">基于上下文的字形变形与定位</option>
-<option value="cursive">连写文本</option>
-<option value="letterforms">斜体、字重与意大利体</option>
-<option value="transforms">大小写与其他变换</option>
-</optgroup>
-
-<optgroup label="排版单元">
-<option value="encoding">字符与编码</option>
-<option value="segmentation">字素、词语的分割与选择</option>
-</optgroup>
-
-<optgroup label="标点符号与其他行内特性">
-<option value="punctuation_etc">短语与章节边界</option>
-<option value="quotations">引文</option>
-<option value="emphasis">强调与突出显示</option>
-<option value="abbrev">缩写、省略与重复</option>
-<option value="inline_notes">行内注与行间注</option>
-<option value="text_decoration">文本标示与其他行内特性</option>
-<option value="data_formats">数据格式与数字</option>
-</optgroup>
-
-<optgroup label="行与段落版式">
-<option value="line_breaking">换行与断词连字</option>
-<option value="justification">文本对齐</option>
-<option value="spacing">文本的间距调整</option>
-<option value="baselines">基线、行高等</option>
-<option value="lists">列表、计数器等</option>
-<option value="initials">首字样式</option>
-</optgroup>
-
-<optgroup label="页面与书籍版式">
-<option value="line_breaking">基本页面版式与装订方向</option>
-<option value="grids_tables">网格与表格</option>
-<option value="footnotes_etc">脚注、尾注等</option>
-<option value="headers_footers">页眉、页脚等</option>
-<option value="interaction">表单与用户交互</option>
-</optgroup>
 </select>
 </p>
 
@@ -124,37 +79,6 @@ f.additionalLinks = ''
 
 <p><strong>按文种过滤</strong>
 <select id="script">
-<option value="">所有文种</option>
-
-<option value="adlm">阿德拉姆字母</option>
-<option value="arab">阿拉伯字母</option>
-<option value="bopo">注音符号</option>
-<option value="cans">加拿大原住民音节文字</option>
-<option value="cyrl">西里尔字母</option>
-<option value="deva">天城文</option>
-<option value="ethi">吉兹字母</option>
-<option value="grek">希腊字母</option>
-<option value="hani">中文</option>
-<option value="hebr">希伯来字母</option>
-<option value="jpan">日文</option>
-<option value="java">爪哇字母</option>
-<option value="khmr">高棉文</option>
-<option value="kore">朝鲜语/韩国语</option>
-<option value="laoo">老挝文</option>
-<option value="latn">拉丁字母</option>
-<option value="mlym">马拉雅拉姆文</option>
-<option value="mong">蒙文</option>
-<option value="nkoo">西非书面字母</option>
-<option value="taml">泰米尔文</option>
-<option value="thai">泰文</option>
-<option value="tibt">藏文</option>
-<!--
-<option value=""></option>
-<option value=""></option>
-<option value=""></option>
-<option value=""></option>
-<option value=""></option>
--->
 </select>
 </p>
 

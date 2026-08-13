@@ -32,6 +32,7 @@ f.breadcrumb = 'characters';
 f.additionalLinks = ''
 </script>
 <script src="index-data/translations.js"> </script>
+<script src="index-data/filter-options.js"> </script>
 <script src="https://w3c.github.io/i18n-drafts/javascript/doc-structure/article-dt.js"> </script>
 <script src="https://w3c.github.io/i18n-drafts/javascript/boilerplate-text/boilerplate-en.js"></script><!--TRANSLATORS must change -en to the subtag for their language!-->
 <script src="https://w3c.github.io/i18n-drafts/javascript/doc-structure/sitepage-2022.js"> </script>
@@ -66,52 +67,6 @@ f.additionalLinks = ''
 
 <p><strong>Filter by topic</strong>
 <select id="topics">
-<option value="">All topics</option>
-
-<optgroup label="Text direction">
-<option value="writing_mode">Writing mode</option>
-<option value="bidi_text">Bidirectional text</option>
-</optgroup>
-
-<optgroup label="Glyph shaping & positioning">
-<option value="fonts">Fonts &amp; font styles</option>
-<option value="glyphs">Context-based shaping &amp; positioning</option>
-<option value="cursive">Cursive text</option>
-<option value="letterforms">Letterform slopes, weights, &amp; italics</option>
-<option value="transforms">Case &amp; other transforms</option>
-</optgroup>
-
-<optgroup label="Typographic units">
-<option value="encoding">Characters &amp; encoding</option>
-<option value="segmentation">Grapheme/word segmentation &amp; selection</option>
-</optgroup>
-
-<optgroup label="Punctuation & other inline features">
-<option value="punctuation_etc">Phrase &amp; section boundaries</option>
-<option value="quotations">Quotations &amp; citations</option>
-<option value="emphasis">Emphasis &amp; highlighting</option>
-<option value="abbrev">Abbreviation, ellipsis, &amp; repetition</option>
-<option value="inline_notes">Inline notes &amp; annotations</option>
-<option value="text_decoration">Text decoration &amp; other inline features</option>
-<option value="data_formats">Data formats &amp; numbers</option>
-</optgroup>
-
-<optgroup label="Line & paragraph layout">
-<option value="line_breaking">Line breaking &amp; hyphenation</option>
-<option value="justification">Text alignment &amp; justification</option>
-<option value="spacing">Text spacing</option>
-<option value="baselines">Baselines, line height, etc.</option>
-<option value="lists">Lists, counters, etc.</option>
-<option value="initials">Styling initials</option>
-</optgroup>
-
-<optgroup label="Page & book layout">
-<option value="page_layout">General page layout &amp; progression</option>
-<option value="grids_tables">Grids &amp; tables</option>
-<option value="footnotes_etc">Footnotes, endnotes, etc.</option>
-<option value="headers_footers">Page headers, footers, etc.</option>
-<option value="interaction">Forms &amp; user interaction</option>
-</optgroup>
 </select>
 </p>
 
@@ -122,37 +77,6 @@ f.additionalLinks = ''
 
 <p><strong>Filter by script</strong>
 <select id="script">
-<option value="">All scripts</option>
-
-<option value="adlm">Adlam</option>
-<option value="arab">Arabic</option>
-<option value="bopo">Bopomofo</option>
-<option value="cans">Canadian Aboriginal Syllabics</option>
-<option value="cyrl">Cyrillic</option>
-<option value="deva">Devanagari</option>
-<option value="ethi">Ethiopic</option>
-<option value="grek">Greek</option>
-<option value="hani">Chinese</option>
-<option value="hebr">Hebrew</option>
-<option value="jpan">Japanese</option>
-<option value="java">Javanese</option>
-<option value="khmr">Khmer</option>
-<option value="kore">Korean</option>
-<option value="laoo">Lao</option>
-<option value="latn">Latin</option>
-<option value="mlym">Malayalam</option>
-<option value="mong">Mongolian</option>
-<option value="nkoo">N'Ko</option>
-<option value="taml">Tamil</option>
-<option value="thai">Thai</option>
-<option value="tibt">Tibetan</option>
-<!--
-<option value=""></option>
-<option value=""></option>
-<option value=""></option>
-<option value=""></option>
-<option value=""></option>
--->
 </select>
 </p>
 
