@@ -1,0 +1,41 @@
+name: Check script labels
+
+on:
+  label:
+    types: [created, edited, deleted]
+  pull_request:
+    paths:
+      - .github/workflows/check-script-labels.yml
+      - index-data/filter-options.js
+      - scripts/check-script-labels.mjs
+      - tests/filter-options.test.mjs
+  push:
+    branches:
+      - gh-pages
+    paths:
+      - .github/workflows/check-script-labels.yml
+      - index-data/filter-options.js
+      - scripts/check-script-labels.mjs
+      - tests/filter-options.test.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v6
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Run filter-option tests
+        run: node --test tests/filter-options.test.mjs
+      - name: Compare page scripts with GitHub labels
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/check-script-labels.mjs

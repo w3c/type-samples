@@ -75,6 +75,7 @@ var typeSampleFilters = {
 		{ value: 'deva', label: 'Devanagari', translations: { 'zh-hans': '天城文' } },
 		{ value: 'ethi', label: 'Ethiopic', translations: { 'zh-hans': '吉兹字母' } },
 		{ value: 'grek', label: 'Greek', translations: { 'zh-hans': '希腊字母' } },
+		{ value: 'hang', label: 'Hangul', translations: { 'zh-hans': '韩古尔' } },
 		{ value: 'hani', label: 'Chinese', translations: { 'zh-hans': '中文' } },
 		{ value: 'hebr', label: 'Hebrew', translations: { 'zh-hans': '希伯来字母' } },
 		{ value: 'jpan', label: 'Japanese', translations: { 'zh-hans': '日文' } },
@@ -89,6 +90,7 @@ var typeSampleFilters = {
 		{ value: 'taml', label: 'Tamil', translations: { 'zh-hans': '泰米尔文' } },
 		{ value: 'thai', label: 'Thai', translations: { 'zh-hans': '泰文' } },
 		{ value: 'tibt', label: 'Tibetan', translations: { 'zh-hans': '藏文' } },
+		{ value: 'yiii', label: 'Yi', translations: { 'zh-hans': '彝文' } },
 	],
 }
 

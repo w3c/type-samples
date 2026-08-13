@@ -64,3 +64,25 @@ You can add descriptive text in comments below, if really needed.  It's also hel
 You won't be able to add github labels. They will be applied for you. And you shouldn't need to use pull requests.
 
 **Note:** This compilation is made available under the [Software and Document License](http://www.w3.org/Consortium/Legal/copyright-software). W3C makes no copyright assertions about the status of user-contributed images.
+
+## Adding a script
+
+The list of scripts appears in two places:
+
+1. The repository's [GitHub labels](https://github.com/w3c/type-samples/labels?q=s%3A), where script labels begin with `s:`.
+2. The `script` list in [`index-data/filter-options.js`](index-data/filter-options.js), which supplies the page's **Filter by script** menu.
+
+These lists do not update each other automatically. Whenever a script is added, update both lists.
+
+To add a script:
+
+1. Create its GitHub label, such as `s:yiii` for Yi.
+2. In `index-data/filter-options.js`, find the `script` list. Copy a nearby line and change its `value`, English name, and translations. The `value` must exactly match the part of the GitHub label after `s:`.
+
+GitHub automatically runs the check script labels test whenever either list changes. If the two lists differ, the test reports which entry is missing and where it needs to be added. A failed test immediately after changing the first list is expected; it will pass after the matching change is made and merged.
+
+Contributors who use Node.js can optionally run the check using:
+
+```sh
+node scripts/check-script-labels.mjs
+```
